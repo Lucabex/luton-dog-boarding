@@ -1,0 +1,225 @@
+.logInInput {
+  width: 75%;
+  align-self: center;
+  padding: 10px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.logInInput:focus {
+  border-color: #4a9dec;
+  box-shadow: 0 0 0 3px rgba(74, 157, 236, 0.15);
+}
+
+.formBox {
+  display: flex;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.loginBox {
+  width: 220px;
+  min-width: 220px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding: 1.5rem;
+  gap: 8px;
+}
+
+.loginBox h1 {
+  font-size: 20px;
+  color: #1a1a2e;
+  margin: 0 0 8px;
+}
+
+.loginBox label {
+  font-size: 13px;
+  color: #666;
+  text-align: left;
+  width: 75%;
+  align-self: center;
+}
+
+.registerBox {
+  flex: 1;
+  background-color: #f8f9fa;
+  display: flex;
+  border-left: 1px solid #eee;
+}
+
+.registerContent {
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.registerContent h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #1a1a2e;
+}
+
+.registerGrid {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.registerSection {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.registerSection h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  color: #1a1a2e;
+}
+
+.registerSection label {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.registerSection input,
+.registerSection select,
+.registerSection textarea {
+  padding: 8px 12px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.registerSection input:focus,
+.registerSection select:focus,
+.registerSection textarea:focus {
+  border-color: #4a9dec;
+  box-shadow: 0 0 0 3px rgba(74, 157, 236, 0.15);
+}
+
+.registerSection textarea {
+  resize: none;
+}
+
+.inputRow {
+  display: flex;
+  gap: 10px;
+}
+
+.inputHalf {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inputThird {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.petTopRow {
+  display: flex;
+  gap: 12px;
+}
+
+.petFields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.petImageUpload {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.imageLabel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+}
+
+.imageLabel:hover {
+  border-color: #4a9dec;
+  background: #f0f7ff;
+}
+
+.petPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.logBtn {
+  margin-top: 8px;
+  background-color: #1565c0;
+  color: white;
+  width: 75%;
+  align-self: center;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logBtn:hover {
+  background-color: #0d47a1;
+}
+
+.registerBtn {
+  padding: 10px 24px;
+  background: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background 0.2s;
+}
+
+.registerBtn:hover {
+  background: #0d47a1;
+}

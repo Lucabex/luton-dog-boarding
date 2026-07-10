@@ -1,0 +1,776 @@
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.dashBox {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    overflow-y: scroll;
+    background-color: #f8f9fb;
+}
+
+.headerDash {
+    align-self: stretch;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    height: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.headerDash h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.userDashList {
+    width: 100%;
+    height: max-content;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+/* ============================================================
+   CARD SHELL
+   ============================================================ */
+
+.activeBooking {
+    width: 95%;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.11);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 14px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow-y: hidden;
+    transition: height 0.3s ease;
+}
+
+.topActivBooking {
+    display: flex;
+    flex-direction: row;
+    align-self: stretch;
+    height: 40px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.09);
+    padding: 0 16px;
+    background: #f3f4f6;
+    border-radius: 14px 14px 0 0;
+    gap: 6px;
+}
+
+.topActivBooking h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    height: auto;
+    display: block;
+}
+
+.activeBooking span {
+    font-size: 10px;
+    height: auto;
+    display: inline-block;
+    padding: 0;
+}
+
+/* Accent dots — subtle */
+#s1 { 
+    color: #0066ff8c;font-size: 30px;
+display:flex ;
+height: 100%;
+justify-content: center;
+align-items: center;
+width: 15px; 
+padding-top: 13px;}
+#s2 { color: #ff8000;font-size:30px; padding-top: 13px; }
+#s3 { color: #06b6d4; font-size:30px; padding-top: 13px;}
+#s4 { color: #3b5bdb; font-size:30px; padding-top: 13px;}
+#s5 { color: #a855f7;font-size:30px; padding-top: 13px;}
+
+
+#topColor1{
+   background-color: #dbeafe ;
+}
+#topColor2{
+
+      background-color:#fef9c3 ;
+}
+
+#topColor3{
+     background-color:#d1fae5 ;
+}
+#topColor4{
+   
+    background-color: #9900ff52 ;
+}
+
+/* ============================================================
+   CARD BODY
+   ============================================================ */
+
+.activeDash {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    padding: 0 8px;
+}
+
+.activeDisplay1 {
+    flex: 1.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.activeDisplay1 h5 {
+    font-size: 10px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+.activeDisplay1 h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+    height: auto;
+}
+
+
+.activeRight button {
+    background-color: #f0f4ff;
+    color: #3b5bdb;
+    border-radius: 100vw;
+    border: 1.5px solid #c5d0f0;
+    width: 80px;
+    height: 26px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+}
+
+.activeRight button:hover {
+    background: #3b5bdb;
+    color: white;
+    border-color: #3b5bdb;
+}
+
+/* ============================================================
+   EMPTY STATES
+   ============================================================ */
+
+.noActiveBooking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ============================================================
+   PAYMENT STATUS
+   ============================================================ */
+
+.PayStatBox {
+    display: flex;
+    align-items: center;
+}
+
+.PaymentStat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 2px;
+    padding-right: 10px;
+}
+
+.PaymentStat h6 {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 700;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.PaymentStat p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ============================================================
+   EXPANDED SECTION
+   ============================================================ */
+
+.activeExtraBox {
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.activeContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5px;
+    align-items: center;
+}
+
+#stDate {
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    padding-left: 0;
+}
+
+#stDateD {
+    font-size: 12px;
+    color: #1a1a2e;
+}
+
+.activeLeft {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.activeLeft button {
+    background-color: #f0f4ff;
+    color: #3b5bdb;
+    border-radius: 100vw;
+    border: 1.5px solid #c5d0f0;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 10px;
+    transition: all 0.15s;
+}
+
+.activeLeft button:hover {
+    background: #3b5bdb;
+    color: white;
+    border-color: #3b5bdb;
+}
+
+#showPicture, #checkActivity {
+    height: 24px;
+    border-radius: 100vw;
+    padding: 0 10px;
+    font-size: 11px;
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+.stage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.modal {
+    background-color: white;
+    width: 400px;
+    max-width: 500px;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+.whiteBordBox{
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+
+/* ============================================================
+   PAST BOOKING
+   ============================================================ */
+
+.pastTop {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    gap: 0.5rem;
+    padding: 0 8px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.pastTotal, .pastCost, .pastBtnExtraBox {
+    display: flex;
+    width: 33%;
+    height: 28px;
+    background-color: #f8f9fb;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #555;
+}
+
+.pastTotal h5, .pastCost h5 {
+    font-size: 11px;
+    margin: 0;
+    color: #555;
+}
+
+.pastBtnExtraBox {
+    background-color: transparent;
+}
+
+.BtnPast {
+    background-color: #f0f4ff;
+    border: 1.5px solid #c5d0f0;
+    border-radius: 100vw;
+    height: 22px;
+    width: 88px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #3b5bdb;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+}
+
+.BtnPast:hover {
+    background: #3b5bdb;
+    color: white;
+    border-color: #3b5bdb;
+}
+
+.pastListHeader {
+    width: 100%;
+    height: 26px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f3f4f6;
+    margin-top: 4px;
+    min-height: 26px;
+}
+
+.listBlock h5 {
+    font-size: 10px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+.pastRow {
+    width: 100%;
+    height: 28px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    min-height: 28px;
+    flex-direction: row;
+}
+
+.pastRow:last-child {
+    border-bottom: none;
+}
+
+.pastlistBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 28px;
+    width: 30px;
+}
+
+.pastlistBlock h5 {
+    font-size: 11px;
+    color: #111827;
+    margin: 0;
+    font-weight: 500;
+}
+
+.addRewBtn {
+    background-color: #f0f4ff;
+    border: 1.5px solid #c5d0f0;
+    border-radius: 6px;
+    color: #3b5bdb;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 2px 6px;
+    font-family: inherit;
+}
+
+#pastScroll {
+    overflow-y: hidden;
+}
+
+.pastRowsScroll {
+    overflow-y: scroll;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+/* ============================================================
+   REVIEW CARD
+   ============================================================ */
+
+.revHeader {
+    display: flex;
+    flex-direction: row;
+    height: 36px;
+}
+
+.revHeaderBox {
+    width: 33.3%;
+    border-right: 1px solid rgba(0,0,0,0.07);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    background-color: #fafafa;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    height: 36px;
+}
+
+.revHeaderBox h5 {
+    font-size: 11px;
+    color: #374151;
+    margin: 0;
+    font-weight: 600;
+}
+
+.revExpandBtn {
+    background-color: #f0f4ff;
+    border: 1.5px solid #c5d0f0;
+    border-radius: 100vw;
+    height: 22px;
+    width: 80px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #3b5bdb;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+}
+
+.revExpandBtn:hover {
+    background: #3b5bdb;
+    color: white;
+    border-color: #3b5bdb;
+}
+
+.revCardBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px 10px;
+}
+
+.revBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.topRev {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    padding: 8px 12px;
+    background-color: #f8f9fb;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.RevDate {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+}
+
+.RevDate h4 {
+    font-size: 11px;
+    margin: 0;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.revBox > h5 {
+    margin: 0;
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.revBox > h5:first-of-type {
+    font-weight: 700;
+    color: #6b7280;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.revBox > h5:last-of-type {
+    color: #111827;
+    font-weight: 400;
+}
+
+#reviewBoxSpecial {
+    overflow-y: hidden;
+}
+
+.revRowsScroll {
+    overflow-y: scroll;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+.star {
+    color: #ddd;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.star.filled {
+    color: #f5b301;
+}
+
+.star:hover {
+    color: #ffcc33;
+}
+
+/* ============================================================
+   GALLERY MODAL
+   ============================================================ */
+
+.imgDisplayBox {
+    display: grid;
+    grid-template-columns: 1fr 9fr 1fr;
+    width: 360px;
+    height: 380px;
+    background-color: #f8f9fb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.previus, .next {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+    transition: background 0.15s;
+}
+
+.previus:hover, .next:hover {
+    background: #e0e0e0;
+}
+
+.previus {
+    border-right: 1px solid rgba(0,0,0,0.08);
+}
+
+.next {
+    border-left: 1px solid rgba(0,0,0,0.08);
+}
+.actionArea{
+    width: 100%;
+    height: 45px;
+
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
+    align-items: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.522);
+
+}
+.actionCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.day{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+  width: 75px;
+    height: 100%;
+    
+    border-right: 1px solid rgba(128, 128, 128, 0.602);
+    border-left: 1px solid rgba(128, 128, 128, 0.602);
+}
+
+.activityType{
+    width: 85px;
+  display: flex;
+    height: 100%;
+    padding: 5px;
+    flex-direction: column;
+    gap: 5px;
+     border-right: 1px solid rgba(128, 128, 128, 0.602);
+    justify-content: center;
+    align-items: center;
+    
+}
+.activityType h5{
+    margin: 0;
+    font-size: 9px;
+}
+
+.typeTop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.typeTop h5{
+    font-weight: 900;
+    
+}
+.typeDown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.typeDown H5{
+      font-weight: 400;
+}
+#dispId{
+    padding-left: 55px;
+     color: #3b5bdb;
+}
+.actBookBox{
+    display: flex;
+    flex-direction: row;
+    width: 66%;
+     
+      justify-content: flex-end;
+      align-items: center;
+}
+
+.dispIdClass{
+    display: flex;
+    flex-direction: row;
+    width: 34%;
+   height: 100%;
+    justify-content: center;
+      align-items: flex-end;
+      color: #b300ff;
+      padding-bottom: 3px;
+      padding-right: 3px;
+}
+.dispIdClass1{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+   height: 100%;
+    justify-content: flex-end;
+      align-items: flex-end;
+      color: #3b5bdb;
+      padding-bottom: 3px;
+}
+#dispIdNext{
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+   height: 100%;
+    
+      align-items: flex-end;
+      color: #ff4d00;
+      
+}
+.dispIdClassEmpty{
+    width: 38%;
+}
+
+.activeContainerWD{
+  
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    height: 75px;
+text-align: center;
+align-items: center;
+  
+   
+
+}
+#withBtn {
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,14 @@
+# build output
+bin/
+obj/
+
+# user-specific VS Code settings
+.vscode/
+
+# sensitive config
+appsettings.Development.json
+
+# dotnet
+*.user
+*.suo
+.DS_Store

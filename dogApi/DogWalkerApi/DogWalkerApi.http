@@ -1,0 +1,6 @@
+@DogWalkerApi_HostAddress = http://localhost:5208
+
+GET {{DogWalkerApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

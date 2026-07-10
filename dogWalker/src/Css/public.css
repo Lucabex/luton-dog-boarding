@@ -1,0 +1,295 @@
+/* ========================
+   PUBLIC VIEW — matches app style
+   (#1565c0 blue, white cards, 10-16px radius, subtle shadows)
+   ======================== */
+
+.publicView {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* ========================
+   HERO
+   ======================== */
+.pub-hero {
+    background-color: white;
+    border-radius: 16px;
+    padding: 1.8rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.pub-hero-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #e8f1fc;
+    color: #15c023;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+}
+
+.pub-hero-title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #1a1a2e;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.pub-hero-sub {
+    margin: 0;
+    font-size: 13.5px;
+    color: #555;
+    line-height: 1.6;
+    max-width: 520px;
+}
+
+.pub-hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.pub-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pub-stat-num {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1565c0;
+}
+
+.pub-stat-label {
+    font-size: 11px;
+    color: #888;
+}
+
+.pub-stat-divider {
+    width: 1px;
+    height: 32px;
+    background-color: #eee;
+}
+
+/* ========================
+   SECTION WRAPPER
+   ======================== */
+.pub-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.pub-section-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a2e;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ========================
+   SERVICE CARDS (accordion)
+   ======================== */
+.pub-services {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pub-service-card {
+    background-color: white;
+    border-radius: 12px;
+    border: 1.5px solid #e0e0e0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pub-service-card:hover {
+    border-color: #4a9dec;
+}
+
+.pub-service-card--open {
+    border-color: #1565c0;
+    box-shadow: 0 4px 16px rgba(21, 101, 192, 0.1);
+}
+
+.pub-service-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.9rem 1.2rem;
+}
+
+.pub-service-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.pub-service-meta {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.pub-service-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.pub-service-tag {
+    font-size: 12px;
+    color: #888;
+    margin-top: 1px;
+}
+
+.pub-service-toggle {
+    font-size: 1.2rem;
+    color: #1565c0;
+    font-weight: 600;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.pub-service-body {
+    padding: 0 1.2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    border-top: 1px solid #eee;
+}
+
+.pub-service-desc {
+    margin: 0.7rem 0 0;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ========================
+   PRICING TABLE
+   ======================== */
+.pub-pricing {
+    background-color: #f0f7ff;
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.pub-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.pub-price-label {
+    color: #444;
+}
+
+.pub-price-value {
+    font-weight: 600;
+    color: #1565c0;
+}
+
+.pub-service-note {
+    margin: 0;
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+}
+
+/* ========================
+   WHY US
+   ======================== */
+.pub-reasons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+}
+
+.pub-reason {
+    background-color: white;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.pub-reason-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.pub-reason-text {
+    margin: 0;
+    font-size: 12.5px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* ========================
+   CTA
+   ======================== */
+.pub-cta {
+    background-color: #1565c0;
+    border-radius: 16px;
+    padding: 1.4rem 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pub-cta-text {
+    margin: 0;
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.9);
+    flex: 1;
+    min-width: 180px;
+    line-height: 1.5;
+}
+
+.pub-cta-btn {
+    padding: 10px 24px;
+    background-color: white;
+    color: #1565c0;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.pub-cta-btn:hover {
+    background-color: #e8f1fc;
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */

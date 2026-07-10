@@ -1,0 +1,67 @@
+.rulesBox{
+    width: 100%;
+    
+    display: flex;
+    min-height: 17rem;
+    background-color: white;
+    border-radius: 16px ;
+    border: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    
+    display: flex;
+    flex-direction: column;
+
+}
+.rulesBox hr{
+    border: 2px solid rgb(246, 229, 229);
+    width:98%;
+
+}
+.rulesBox h1{
+   text-align: center;
+}
+
+
+.testLuca{
+    background-color: brown;
+    color: green;
+    font-size: 5rem;
+    text-align: center;
+}
+.topRules{
+    width:100%;
+  
+  
+  
+}
+.infoGrid{
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  
+  
+
+  flex: 1;
+  
+
+}
+
+.gridBlock{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     padding: 10px;
+  border-right: 2px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
+}
+.gridBlock:hover{
+    background-color: aliceblue;
+    cursor: pointer;
+}
+.gridBlock:nth-child(3n) {
+  border-right: none;
+}
+.gridBlock:nth-child(n+4) {
+  border-bottom: none;
+}

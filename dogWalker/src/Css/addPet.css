@@ -1,0 +1,198 @@
+.addPetBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    background-color: #fafafa;
+}
+
+.addPetHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    height: 37px;
+    border-bottom: 1px solid gray;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    
+}
+
+.addPetHeader h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.regBody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 10px;
+}
+
+.regSection {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.07);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.regSectionTitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #999;
+    margin: 0 0 4px 0;
+    font-weight: 600;
+}
+
+.regField {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.regField label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.regField input,
+.regField select,
+.regField textarea {
+    padding: 8px 12px;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    background-color: #fafafa;
+    color: #1a1a2e;
+    outline: none;
+    transition: border 0.2s;
+    font-family: inherit;
+}
+
+.regField input:focus,
+.regField select:focus,
+.regField textarea:focus {
+    border-color: #4caf50;
+    background-color: #ffffff;
+}
+
+.regField textarea {
+    resize: none;
+}
+
+.regRow {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.petTopRow {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.petImgUpload {
+    flex-shrink: 0;
+}
+
+.petImgLabel {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    border: 2px dashed rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.75rem;
+    color: #999;
+    text-align: center;
+    overflow: hidden;
+    transition: border 0.2s;
+}
+
+.petImgLabel:hover {
+    border-color: #4caf50;
+    color: #4caf50;
+}
+
+.petImgPreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.petFields {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.regSubmitBtn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+    max-height: 50px;
+}
+
+.regSubmitBtn:hover {
+    background-color: #1b5e20;
+}
+
+.regBackBtn {
+    background: none;
+    border: none;
+    font-size: 0.875rem;
+    color: #555;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.regBackBtn:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.regNextBtn {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a2e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+}
+
+.regNextBtn:hover {
+    background-color: #2e3060;
+}

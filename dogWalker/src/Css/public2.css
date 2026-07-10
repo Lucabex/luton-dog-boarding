@@ -1,0 +1,536 @@
+.publicV{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #fdf8f2;
+    overflow-y: scroll;
+    
+   
+}
+.topLineP{
+        flex-shrink: 0;
+    display: flex;
+    width: 100%;
+  
+    padding: 5px;
+    align-items: end;
+   
+    height: 130px;
+    padding-bottom: 25px;
+}
+.picture1{
+      display: flex;
+    width: 35%;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+   
+}
+.homeImg{
+    width: 120px;
+    height: 120px;
+    border-radius: 250px 250px;
+    object-fit: cover;
+    display: block;
+    box-shadow: 12px 1px 12px rgba(0, 0, 0, 0.4);
+    
+}
+.textArea{
+    width: 65%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+   
+   
+}
+.empty{
+    height: 30px;
+    width: 100%;
+    border-top: 1px solid rgba(128, 128, 128, 0.433);
+    display: block;
+    background-color: #3b2a1a;
+}
+.text1{
+   
+    font-size: 15px;
+    color: #7a6555;
+    line-height: 1.7;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    text-align: center;
+    max-width: 380px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+
+.textArea h4{
+  font-size: 30px;
+  color: #f77c09;
+  
+  
+
+}
+.banner1{
+     flex-shrink: 0;
+    width: 100%;  
+    height: 290px;
+   display: flex;
+   flex-direction: column;
+
+     background-color: #fdf8f2;
+    padding:5px;
+    font-weight: 200;
+    justify-content: center;
+    align-items: center;
+}
+.banner1 h4{
+    font-size: 40px;
+
+    color: mediumvioletred;
+}
+.textArea p{
+    
+}
+.bubleGallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 95%;
+    height: 300px;
+    
+   background-color:rgba(255, 255, 255, 0.3);
+   background-size: 450px;
+   align-self: center;
+
+   
+  
+    
+}
+
+.stripImg {
+    position: absolute;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.s1 { width: 100px; height: 100px; top: 10%; left: 5%; z-index: 1;}
+.s2 { width: 130px; height: 130px; top: 25%; left: 22%; z-index: 2;}
+.s3 { width: 90px;  height: 90px;  top: 5%;  left: 42%; z-index: 1;}
+.s4 { width: 120px; height: 120px; top: 30%; left: 55%; z-index: 2;}
+.s5 { width: 100px; height: 100px; top: 8%;  left: 75%; z-index: 1;}
+.s6 { width: 120px; height: 120px; top: 55%;  left: 5%; z-index: 3;}
+.s7 { width: 100px; height: 100px; top: 58%;  left: 40%; z-index: 1;}
+.s8 { width: 100px; height: 100px; top: 54%;  left: 75%; z-index: 2;}
+
+.servicesList {
+    flex-shrink: 0;
+    width: 100%;
+    padding: 30px 20px;
+    background-color: #fdf8f2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+}
+
+.servicesTitle {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: #3b2a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.servicesGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+.serviceNote{
+    display: flex;
+    flex-direction: row;
+    gap:0.2rem;
+    align-items: center;
+    justify-content: center;
+}
+.serviceCard {
+    background-color: #fff;
+    border: 1.5px solid #e8ddd0;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.serviceCard:hover {
+    border-color: #c8a882;
+}
+
+.serviceCard--open {
+    border-color: #b05e1a;
+    box-shadow: 0 4px 16px rgba(176, 94, 26, 0.1);
+}
+
+.serviceHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+}
+
+.serviceIcon {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.serviceMeta {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.infoDot{
+    width: 20px;
+    height: 20px;
+    display:flex;
+    justify-content: center;
+    background-color: darkblue;
+    color:rgb(255, 255, 255);
+    border-radius: 250px;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    align-content: flex-end;
+}
+
+.serviceName {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3b2a1a;
+}
+
+.serviceTagline {
+    font-size: 12px;
+    color: #9a7a62;
+    margin-top: 2px;
+}
+
+.serviceToggle {
+    font-size: 20px;
+    color: #b05e1a;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.serviceBody {
+    padding: 0 18px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid #f0e8de;
+}
+
+.serviceDesc {
+    margin: 10px 0 0;
+    font-size: 13px;
+    color: #7a6555;
+    line-height: 1.6;
+}
+
+.servicePricing {
+    background-color: #fdf0e0;
+    border-radius: 10px;
+    padding: 8px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.priceRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.priceLabel {
+    color: #5a4030;
+}
+
+.priceValue {
+    font-weight: 600;
+    color: #b05e1a;
+}
+
+.serviceNote {
+    margin: 0;
+    font-size: 12px;
+    color: #9a7a62;
+    font-style: italic;
+}
+.contactBox {
+    flex-shrink: 0;
+    width: 100%;
+    padding: 35px 20px;
+    background-color: #fdf8f2;
+    border-top: 1px solid #e8ddd0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.howToH3{
+    font-size: 29px;
+}
+.howToSteps {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    text-align: left;
+}
+
+.howToStep {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.stepNumCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.stepNum {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fdf0e0;
+    border: 2px solid #b05e1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #b05e1a;
+}
+
+.stepNumFinal {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+     background: #fdf0e0;
+    border: 2px solid #b05e1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+      color: #b05e1a;
+}
+
+.stepLine {
+    width: 2px;
+    height: 44px;
+    background: #e8ddd0;
+}
+
+.stepContent {
+    padding-top: 6px;
+    padding-bottom: 20px;
+}
+
+.stepTitle {
+    margin: 0 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3b2a1a;
+}
+
+.stepDesc {
+    margin: 0;
+    font-size: 13px;
+    color: #7a6555;
+    line-height: 1.5;
+}
+
+.howToNote {
+    margin-top: 1rem;
+    background: #fdf0e0;
+    border-radius: 10px;
+    padding: 12px 16px;
+     border: 2px solid #b05e1a;
+    font-size: 13px;
+    color: #7a6555;
+    line-height: 1.5;
+}
+
+.contactTitle {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: #ff7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.contactDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.contactRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contactIcon {
+    font-size: 18px;
+}
+
+.contactLink {
+    font-size: 15px;
+    color: #7a6555;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+
+   
+}
+#tW{
+    font-size: 15px;
+}
+
+.contactLink:hover {
+    color: #b05e1a;
+}
+.paymentTxt{
+    text-spacing-trim: normal;
+
+}
+#paymentBox{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+#paymentBox p{
+    margin: 0;
+    font-size: 14px;
+    color: #866e5c;
+    line-height: 1.5;
+}
+.photoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    width: 95%;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 12px;
+    align-self: center;
+    flex-shrink: 0;
+    margin-top: 30px;
+}
+
+.photoGridMain {
+    height: 280px;
+    overflow: hidden;
+}
+
+.photoGridMain img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.photoGridSide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 6px;
+    height: 280px;
+}
+
+.photoGridImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.paymentGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.paymentOption {
+    background: #fff;
+    border: 1.5px solid #e8ddd0;
+    border-radius: 12px;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.paymentIconCircle {
+    font-size: 28px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #fdf0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paymentOptionTitle {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3b2a1a;
+}
+
+.paymentOptionDesc {
+    margin: 0;
+    font-size: 12px;
+    color: #7a6555;
+    line-height: 1.5;
+}
+
+.paymentNote {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+    background: #fdf0e0;
+    border-radius: 10px;
+    padding: 12px 16px;
+    border: 1.5px solid #e8c99a;
+    max-width: 420px;
+    width: 100%;
+}
+
+.paymentNote p {
+    margin: 0;
+    font-size: 12px;
+    color: #7a6555;
+    line-height: 1.5;
+}

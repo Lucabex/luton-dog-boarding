@@ -1,0 +1,515 @@
+.adminDashBox {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabBar {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  padding: 0 2px;
+}
+
+.folderTab {
+  position: relative;
+  padding: 7px 24px 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #f0ede8;
+  color: #666;
+  border: 1px solid #bbb;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  margin-right: -1px;
+  bottom: -1px;
+  z-index: 1;
+  transition: background 0.15s, color 0.15s;
+  user-select: none;
+}
+
+.folderTab.active {
+  background-color: #fff;
+  color: #111;
+  z-index: 3;
+  border-color: #bbb;
+}
+
+.folderTab.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: #fff;
+}
+
+.folderTab:hover:not(.active) {
+  background-color: #e6e2dd;
+  color: #333;
+}
+
+.allBookingBox {
+  width: 100%;
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid #bbb;
+  border-radius: 0 6px 6px 6px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.adminBookingList {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.adminBookCard {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 14px;
+  flex-shrink: 0;
+}
+
+.adminBookCardTop {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.serviceTag {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.statusTag {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.statusTag.confirmed {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.statusTag.completed {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.adminBookCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.adminBookRow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 0.875rem;
+}
+
+.adminBookLabel {
+  font-weight: 600;
+  color: #888;
+  min-width: 60px;
+}
+
+.adminBookSection {
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.adminBookSectionTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #999;
+  margin: 0 0 8px 0;
+}
+
+.reviewTag {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #fff9c4;
+  color: #f57f17;
+}
+
+.paidTag {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.unpaidTag {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #ffebee;
+  color: #c62828;
+}
+
+.amountInput {
+  width: 100px;
+  padding: 4px 8px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+  font-size: 0.875rem;
+}
+
+.markPaidBtn {
+  margin-top: 8px;
+  padding: 6px 14px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.markPaidBtn:hover {
+  background: #1b5e20;
+}
+
+.markCompleteBtn {
+  margin-top: 8px;
+  padding: 6px 14px;
+  background: #2e7d7d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.markCompleteBtn:hover {
+  background: #1b565e;
+}
+
+.markPendingBtn {
+  margin-top: 8px;
+  padding: 6px 14px;
+  background: #f55e5e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.markPendingBtn:hover {
+  background: #5e1b1b;
+}
+
+.buttonLine {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* ===== OWNERS TAB ===== */
+
+.allOwnerBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  overflow-y: scroll;
+}
+
+.allOwnerCard {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.topOwner {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.topBlock {
+  flex: 1;
+}
+
+.meetingTog {
+  width: 100%;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #339a10;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.meetingTog p {
+  font-size: 12px;
+  color: #c6e3cb;
+  margin: 0;
+}
+
+.meetingTogNot {
+  width: 100%;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9a3910;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.meetingTogNot p {
+  font-size: 12px;
+  color: #e3cec6;
+  margin: 0;
+}
+
+.totalB {
+  width: 100%;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #10129a;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.totalB p {
+  font-size: 12px;
+  color: #c6cce3;
+  margin: 0;
+}
+
+.totalC {
+  width: 100%;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #91109a;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.totalC p {
+  font-size: 12px;
+  color: #e2c6e3;
+  margin: 0;
+}
+
+.OwnerInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+  font-size: 0.875rem;
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.775rem;
+  
+}
+
+.OwnerInfo p {
+  margin: 0;
+}
+
+.ownerDogsBox {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  
+}
+
+.ownerDogCard {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background: #f9f9f9;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  min-width: 220px;
+}
+
+.ownerDogPhoto img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.ownerDogPhoto span {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.ownerDogInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.8rem;
+  color: #444;
+}
+
+.ownerDogInfo p {
+  margin: 0;
+}
+
+.togleBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 5px;
+    width: 180px;
+}
+
+.togleBox > *:nth-child(3) {
+    grid-column: 1 / -1;
+}
+.togleBox button{
+  font-size: 12px;
+  height: 20px;
+
+}
+.togleBox > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 70px;
+    margin: 0;
+    padding: 0;
+}
+#meeting{
+  background-color: rgb(253, 166, 166);
+  color: rgb(142, 0, 123);
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 95px;
+  height: 30px;
+}
+#approved{
+  background-color: rgb(182, 248, 181);
+  color: rgb(47, 0, 255);
+  border: none;
+  border-radius: 10px;
+  padding:5px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+#ratingYes{
+  background-color: rgba(255, 45, 45, 0.1);
+  color: rgb(93, 39, 32);
+  border: none;
+  border-radius: 10px;
+  padding:5px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+height: 30px;
+
+}
+#ratingNo{
+  background-color: rgb(182, 248, 181);
+  color: rgb(47, 0, 255);
+  border: none;
+  border-radius: 10px;
+  padding:5px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+height: 30px;
+}
+
+
+#buttonLine{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  
+}
+#buttonLine button{
+  width: 120px;
+  height: 26px;
+
+}
+.deleteBookBtnSP{
+  width: 100%;
+  background-color: #111;
+  color:white;
+}
+.lineLog{
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+}

@@ -1,0 +1,420 @@
+
+.homePage{
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    
+}
+ .topArea {
+  display: flex;
+
+  width: 98%;
+  height: 120px;
+  background-color: rgb(245, 251, 251);
+  justify-self: center;
+ 
+  max-height: 100px;
+
+
+} 
+
+.businessName{
+    width: 60%;
+    height: 100%;
+max-height: 100px;
+    display: flex;
+   
+}
+.contactInfo{
+  width: 30%;
+  min-width: 320px;
+  height: 100%;
+  max-height: 100px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 24px;
+  box-sizing: border-box;
+}
+
+.contactCard{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 24px;
+  row-gap: 8px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.contactRow{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 3px 6px;
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.contactRow:hover{
+  background: rgba(146, 255, 127, 0.15);
+  color: #1a1a2e;
+}
+
+.contactRow--static{
+  cursor: default;
+}
+
+.contactRow--static:hover{
+  background: transparent;
+  color: #333;
+}
+
+.contactIcon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  
+}
+
+.contactIcon svg{
+  width: 15px;
+  height: 15px;
+}
+
+.contactText{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.brandName {
+  display: flex;
+  font-size: 2.5rem;
+  color: #1a1a2e;
+  margin: 0;
+  font-weight: 700;
+  height: 100%;
+  border-radius: 10px;
+width: 100%;
+  align-items: center;
+  
+  justify-content: flex-end;
+  padding-right: 100px;
+  max-height: 100px;
+
+
+}
+.topLeft {
+ width:10%;
+padding-left: 30px;
+
+ 
+  
+}
+
+.topRight{
+    width: 30%;
+    display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items:center;
+   
+}
+
+
+.line{
+  color: black;
+  
+}
+.logo{
+  width: 120px;
+  height: 120px;
+  border-radius: 50px;
+}
+.topNav{
+  text-decoration: none;
+  
+   
+}
+.navLink{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+.navLink:hover{
+    background-color: rgb(146, 255, 127);
+    border-radius: 50px;
+   
+}
+
+.main{
+    width: 98%;
+   
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-items: center;
+    border-radius:0 0 10px 10px;
+    gap:10px;
+    height: 85%;
+    flex-wrap: wrap;
+    flex: 1;
+    margin-top: 2rem;
+    padding-left: 10px;
+    
+  
+}
+.mainLeft {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    min-width: 400px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    overflow-y: scroll;
+}
+.mainLeft--logged {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    min-width: 400px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    overflow-y: scroll;
+}
+
+.mainRight {
+    width: 25%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    min-width: 450px;
+    flex-shrink: 0;
+}
+.newLeftMain{ 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  gap:1rem;
+  max-width: 950px; 
+  background-color: rgb(250, 250, 250);
+  min-width: 400px;
+  padding: 10px;
+  width: 500px;
+ 
+  
+}
+
+
+.leftMain {
+    display: flex;
+    flex-direction: column;
+   
+    height: auto;
+    min-height: 500px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    flex-shrink: 0;
+    width: 100%;
+    background-color: #ffffff;
+}
+.cBox{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: baseline;
+    width: 40px;
+    height: 50%;
+    flex-shrink: 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    min-height: 350px;
+}
+.rBox{
+ display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: baseline;
+    width: 99%;
+    height: 50%;
+    flex-shrink: 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    min-height: 350px;
+}
+.checkAv{
+  
+  height: 300px;
+  flex-shrink: 0;
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 0 0 15px 15px;
+  border:2px solid rgb(110, 110, 110,0.1);
+  
+}
+.mainActionArea {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(253, 253, 253);
+    width: 500px;
+    max-width: 520px;
+    min-width: 480px;
+    overflow: hidden;
+    align-items: stretch;
+}
+
+.rightMain{
+    width:25% ;
+    height: 100%;
+     background-color: rgb(255, 255, 255);
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     text-align: center;
+     min-width: 450px;
+     flex-shrink: 0;
+     
+
+}
+.mainTopRight{
+height: 50%;
+width: 100%;
+
+display: flex;  
+flex-direction: column;
+}
+.mainBottomRight{
+height: 50%;
+width: 100%;
+
+}
+
+
+
+
+
+
+.adminLeft{
+  width: 450px;
+  height: 100%;
+background-color: white;
+  padding: 10px;
+}
+.legend{
+  width: 95%;
+  height: 70px;
+  background-color: rgba(171, 171, 171, 0.066);
+}
+
+@media(max-width:460px) {
+  .homePage {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .topArea {
+    width: 100%;
+    max-height: none;
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  .main {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    height: auto;
+    padding-left: 0;
+  }
+
+  .mainLeft,
+  .mainLeft--logged {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .mainActionArea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .rightMain,
+  .mainRight {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+   .topArea {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    max-height: none;
+    padding: 12px 0;
+    gap: 12px;
+  }
+
+  .topLeft {
+    width: auto;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .businessName {
+    width: 100%;
+    max-height: none;
+    height: auto;
+    justify-content: center;
+  }
+
+  .brandName {
+    font-size: 1.6rem;
+    justify-content: center;
+    padding-right: 0;
+    text-align: center;
+    max-height: none;
+    height: auto;
+  }
+
+  .contactInfo {
+    width: 100%;
+    min-width: 0;
+    max-height: none;
+    height: auto;
+    justify-content: center;
+    padding: 0 12px;
+  }
+
+  .contactCard {
+    justify-content: center;
+  }
+}

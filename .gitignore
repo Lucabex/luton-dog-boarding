@@ -1,0 +1,12 @@
+# secrets: never commit these
+appsettings.json
+appsettings.Development.json
+.env
+.env.local
+.env.*.local
+
+# OS junk
+.DS_Store
+
+# user-uploaded content (customer photos - not code)
+dogApi/DogWalkerApi/wwwroot/uploads/

@@ -1,0 +1,194 @@
+.mainCalendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: rgba(127, 171, 130, 0.078);
+   
+    padding-bottom: 10px;
+}
+
+.mainCalendar h1{
+  height: 40px;
+  background-color: rgba(127, 171, 130, 0.2);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+
+  
+}
+.calendarBox {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    background-color: white;
+    border-radius: 16px 16px 0 0;
+    border: 1px solid var(--borderColor);
+    height: auto;
+}
+.av1{
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid greenyellow;
+
+}
+.leftBox, .rightBox {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  flex: 1;
+
+
+}
+
+.leftBox {
+  border-right: 1px solid #eee;
+}
+
+.calDays, .calDate {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  text-align: center;
+  gap: 3px;
+}
+.calDate {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 100%;
+  text-align: center;
+  gap: 3px;
+}
+.calDays {
+  color: #999;
+  font-size: 12px;
+
+}
+.leftBox , .rightBox h3 {
+  text-align: center;
+}
+.dayCard {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: none;
+  background-color: #f0f7ff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dayCard:hover {
+  background-color: #d0e8ff;
+}
+
+.buttonBox {
+    width: 95%;
+    background-color: white;
+    height: 35px;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    border: 1px solid var(--borderColor);
+    border-top: none;
+    margin-bottom: 5px;
+}
+.buttonLeft, .buttonRight{
+  width: 200px;
+    height: 22px;
+    background-color: var(--buttonColor);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    border: 2px solid rgb(182, 181, 181);
+
+
+  
+ 
+  
+
+}
+
+.buttonLeft:hover ,.buttonRight:hover {
+  cursor: pointer;
+  background-color: rgb(255, 166, 0);
+
+}
+
+
+.dayCard--green { background-color: #d4f4dd; }
+.dayCard--yellow { background-color: #fdf3d0; }
+.dayCard--red { background-color: #fadcd9; }
+
+.dayCard {
+    position: relative;
+}
+
+.slot-popup {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.slot-popup__row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    font-size: 0.85rem;
+}
+
+.slot-popup__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+
+.titleBox{
+  height: 60px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 12px;
+}
+.didascalia{
+  width: 95%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  
+  border-radius: 10px 10px 10px 10px;
+  padding: 15px;
+  margin: 15px 0 15px 0;
+  border: 0.5px solid rgba(128, 128, 128, 0.456);
+   border-left: 5px solid rgb(255, 0, 0);
+}
+@media (max-width:460px){
+  .calendarBox{
+    width: 400px;
+  }
+  .buttonBox{
+    width: 400px;
+  }
+}

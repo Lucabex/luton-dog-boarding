@@ -1,0 +1,195 @@
+.dogCard {
+    width: 400px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: rgb(255, 254, 254);
+    flex-shrink:0;
+    overflow-y: scroll;
+    height: 100%;
+   box-shadow: 0 4px 14px rgba(181, 181, 181, 0.5);
+    
+    
+}
+.dogCard:hover {
+    border-color: #7ab3e0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.dogCard--selected {
+    border-color: #3a86ff;
+    box-shadow: 0 0 0 3px rgba(58,134,255,0.15);
+}
+.dogCardTop {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+.dogCardPhoto {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f0f0f0;
+}
+.dogCardPhoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.dogCardPhotoPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+.dogCardMainInfo {
+    flex: 1;
+}
+.dogCardName {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 2px 0;
+}
+.dogCardBreed {
+    font-size: 15px;
+    color: #888;
+}
+.dogCardTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 6px;
+}
+.dogTag {
+    font-size: 14px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: #f0f0f0;
+    color: #555;
+}
+.dogTag--green { background: #e6f4ea; color: #2d7a3a; }
+.dogTag--red { background: #fde8e8; color: #c0392b; }
+.dogCardSelectToggle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    color: #ccc;
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+.dogCardSelectToggle.active {
+    background: #3a86ff;
+    border-color: #3a86ff;
+    
+}
+.plus{
+    color: #000000;
+}
+.dogCardNotes {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 15px;
+    color: #555;
+}
+.dogCardNotes p { margin: 2px 0; }
+.dogCardOwner {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+}
+.dogCardOwnerHeader {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 4px;
+}
+.dogCardOwnerInfo, .dogCardOwnerEmergency {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 6px;
+}
+.dogCardOwnerEmergency{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ownerName {
+    font-size: 17px;
+    font-weight: 600;
+    color: #333;
+}
+.ownerDetail {
+    font-size: 15px;
+    color: #666;
+}
+.emergencyLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e67e22;
+}
+.descriptionText{
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #0f0f0f;
+    margin-bottom: 4px;
+}
+.topDogCard{
+    display: flex;
+    flex-direction: row;
+   gap: 2rem;
+    justify-content: space-around;
+    width: 100%;
+
+}
+.dogCardTitle{
+font-size: 13px;
+    font-weight: 300;
+    color: #0f0f0f;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: column;
+    
+    
+    
+}
+
+#telephone{
+    padding-right: 35px;
+
+}
+.ownerTelephone{
+
+}
+.ownerDetail{
+font-size: 13px;
+    font-weight: 300;
+    color: #0f0f0f;
+    margin-bottom: 4px;
+}
+
+#title{
+    font-size: 18px;
+}
+#info{
+    font-size: 17px;
+    font-weight: 200;
+}
