@@ -9,13 +9,15 @@ import Dog7 from '../assets/dog7.png'
 import Dog8 from '../assets/dog8.png'
 import paws2 from '../assets/paws2.webp'
 import foto from '../assets/foto.png'
-
+import { createPortal } from "react-dom"
  import { useState } from "react"
 function ClassicPublic(){
    
 
 // at the top of your component, before the return:
 const [activeService, setActiveService] = useState(null)
+const [showPrivacy, setShowPrivacy] = useState(false)
+const [showTerms, setShowTerms] = useState(false)
 
 const services = [
     {
@@ -230,8 +232,59 @@ const services = [
         <p>All pricing is agreed before confirmation. If you have any questions about costs feel free to get in touch before booking.</p>
     </div>
 </div>
+
                 <div className="contactBox">
-                    <h3>Koudelka Web Design</h3>
+                 <div className="siteFooter">
+        <div className="footerTop">
+            <div className="footerCol">
+                <h4 className="footerHeading">Luton Dog Boarding</h4>
+                <p className="footerText">Personal dog walking, boarding and day care in Luton.</p>
+            </div>
+
+            <div className="footerCol">
+                <h4 className="footerHeading">Contact</h4>
+                <a href="mailto:lucabex@gmail.com" className="footerLink">lucabex@gmail.com</a>
+                <a href="tel:07585626737" className="footerLink">07585 626 737</a>
+            </div>
+
+            <div className="footerCol">
+                <h4 className="footerHeading">Legal</h4>
+                <span className="footerLink" onClick={() => setShowPrivacy(true)}>Privacy Policy</span>
+                <span className="footerLink" onClick={() => setShowTerms(true)}>Terms of Service</span>
+            </div>
+        </div>
+
+    <div className="footerBottom">
+        <p className="footerCopyright">© {new Date().getFullYear()} Luton Dog Boarding. All rights reserved.</p>
+        <p className="footerCredit">Site by Koudelka Web Design</p>
+    </div>
+    {showPrivacy && createPortal(
+    <div className="stage" onClick={() => setShowPrivacy(false)}>
+        <div className="modal legalModal" onClick={e => e.stopPropagation()}>
+            <h2 className="modalTitle">Privacy Policy</h2>
+            <div className="legalContent">
+                {/* content goes here */}
+            </div>
+            <button className="backBtn" onClick={() => setShowPrivacy(false)}>Close</button>
+        </div>
+    </div>,
+    document.body
+)}
+
+{showTerms && createPortal(
+    <div className="stage" onClick={() => setShowTerms(false)}>
+        <div className="modal legalModal" onClick={e => e.stopPropagation()}>
+            <h2 className="modalTitle">Terms of Service</h2>
+            <div className="legalContent">
+                {/* content goes here */}
+            </div>
+            <button className="backBtn" onClick={() => setShowTerms(false)}>Close</button>
+        </div>
+    </div>,
+    document.body
+)}
+</div>
+                    
                 </div>
 
         </div>
