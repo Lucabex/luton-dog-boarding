@@ -69,17 +69,7 @@ async function handleEditDog(id) {
 }
 }
 
-    async function handleEdit(id){
-        const res = await fetch(`http://192.168.0.209:5208/api/dog/${id}`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}` }
-       
-        
-    })
-     if (res.ok) {
-        setDogs(prev => prev.filter(d => d.id !== id))
-    }
-    }
+    
 
 
     useEffect(() => {
@@ -111,7 +101,7 @@ function isValidEmail(value) {
     const formData = new FormData()
     formData.append('file', file)
 
-    const res = await fetch('http://192.168.0.209:5208/api/auth/photo', {
+    const res = await fetch('http://192.168.0.209:5208/api/auth/userphoto', {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
         body: formData

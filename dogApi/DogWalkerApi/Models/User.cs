@@ -7,7 +7,7 @@ namespace DogWalkerApi.Models
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
-        public string? PhotoUrl { get; set; }
+      
         public string Username { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
@@ -19,6 +19,7 @@ namespace DogWalkerApi.Models
         public bool IsAdmin { get; set; } = false;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public string? ResetCodeHash { get; set; }
+         public string? PhotoUrl { get; set; } = string.Empty;
 public DateTime? ResetCodeExpiry { get; set; }
 
         public ICollection<Dog> Dogs { get; set; } = new List<Dog>();

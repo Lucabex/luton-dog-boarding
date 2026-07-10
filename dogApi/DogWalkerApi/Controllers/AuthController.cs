@@ -300,4 +300,32 @@ private async Task SendResetEmail(string toEmail, string code)
 
     await resend.EmailSendAsync(message);
 }
+[HttpPost("userphoto")]
+[Authorize]
+public async Task<IActionResult> UploadPhoto(IFormFile file)
+{
+    if (file == null || file.Length == 0)
+        return BadRequest("No file uploaded");
+
+    var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+    var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+    if (user == null) return NotFound();
+  
+
+    var fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
+    var folder = Path.Combine("wwwroot", "uploads", "users");
+    Directory.CreateDirectory(folder);
+    var savePath = Path.Combine(folder, fileName);
+
+    using (var stream = new FileStream(savePath, FileMode.Create))
+    {
+        await file.CopyToAsync(stream);
+    }
+
+    user.PhotoUrl = $"/uploads/users/{fileName}";
+    await _context.SaveChangesAsync();
+
+    return Ok(new { photoUrl = user.PhotoUrl });
+}
 }
