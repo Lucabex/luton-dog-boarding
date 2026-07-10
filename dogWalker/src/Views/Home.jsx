@@ -73,6 +73,11 @@ function Home() {
     }
 
     return (
+        <>
+        <div className="rotateOverlay">
+    <h2>Please rotate your device</h2>
+    <p>This app works best in portrait mode.</p>
+</div>
         <div className="homePage">
             <div className="topArea">
                 <div className="topLeft">
@@ -138,6 +143,7 @@ function Home() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

@@ -1,37 +1,35 @@
-
 .homePage{
     width: 100%;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
-    
 }
- .topArea {
-  display: flex;
 
+.rotateOverlay {
+    display: none;
+}
+
+.topArea {
+  display: flex;
   width: 98%;
   height: 120px;
   background-color: rgb(245, 251, 251);
   justify-self: center;
- 
   max-height: 100px;
-
-
-} 
+}
 
 .businessName{
     width: 60%;
     height: 100%;
-max-height: 100px;
+    max-height: 100px;
     display: flex;
-   
 }
+
 .contactInfo{
   width: 30%;
   min-width: 320px;
@@ -93,7 +91,6 @@ max-height: 100px;
   height: 26px;
   flex-shrink: 0;
   border-radius: 50%;
-  
 }
 
 .contactIcon svg{
@@ -105,6 +102,7 @@ max-height: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .brandName {
   display: flex;
   font-size: 2.5rem;
@@ -113,21 +111,16 @@ max-height: 100px;
   font-weight: 700;
   height: 100%;
   border-radius: 10px;
-width: 100%;
+  width: 100%;
   align-items: center;
-  
   justify-content: flex-end;
   padding-right: 100px;
   max-height: 100px;
-
-
 }
+
 .topLeft {
  width:10%;
-padding-left: 30px;
-
- 
-  
+ padding-left: 30px;
 }
 
 .topRight{
@@ -136,38 +129,35 @@ padding-left: 30px;
    flex-direction: row;
    justify-content: center;
    align-items:center;
-   
 }
-
 
 .line{
   color: black;
-  
 }
+
 .logo{
   width: 120px;
   height: 120px;
   border-radius: 50px;
 }
+
 .topNav{
   text-decoration: none;
-  
-   
 }
+
 .navLink{
     text-decoration: none;
     color: black;
     padding: 10px;
 }
+
 .navLink:hover{
     background-color: rgb(146, 255, 127);
     border-radius: 50px;
-   
 }
 
 .main{
     width: 98%;
-   
     display: flex;
     flex-direction: row;
     justify-self: center;
@@ -179,9 +169,8 @@ padding-left: 30px;
     flex: 1;
     margin-top: 2rem;
     padding-left: 10px;
-    
-  
 }
+
 .mainLeft {
     height: 100%;
     display: flex;
@@ -192,6 +181,7 @@ padding-left: 30px;
     background-color: #ffffff;
     overflow-y: scroll;
 }
+
 .mainLeft--logged {
     height: 100%;
     display: flex;
@@ -214,6 +204,7 @@ padding-left: 30px;
     min-width: 450px;
     flex-shrink: 0;
 }
+
 .newLeftMain{ 
   display: flex;
   flex-direction: row;
@@ -226,15 +217,11 @@ padding-left: 30px;
   min-width: 400px;
   padding: 10px;
   width: 500px;
- 
-  
 }
-
 
 .leftMain {
     display: flex;
     flex-direction: column;
-   
     height: auto;
     min-height: 500px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -243,6 +230,7 @@ padding-left: 30px;
     width: 100%;
     background-color: #ffffff;
 }
+
 .cBox{
   display: flex;
   justify-content: center;
@@ -255,6 +243,7 @@ padding-left: 30px;
     background-color: rgba(255, 255, 255, 0.3);
     min-height: 350px;
 }
+
 .rBox{
  display: flex;
   justify-content: center;
@@ -267,15 +256,15 @@ padding-left: 30px;
     background-color: rgba(255, 255, 255, 0.3);
     min-height: 350px;
 }
+
 .checkAv{
-  
   height: 300px;
   flex-shrink: 0;
-box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   border-radius: 0 0 15px 15px;
   border:2px solid rgb(110, 110, 110,0.1);
-  
 }
+
 .mainActionArea {
     height: 100%;
     display: flex;
@@ -298,39 +287,137 @@ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
      text-align: center;
      min-width: 450px;
      flex-shrink: 0;
-     
-
 }
+
 .mainTopRight{
-height: 50%;
-width: 100%;
-
-display: flex;  
-flex-direction: column;
+  height: 50%;
+  width: 100%;
+  display: flex;  
+  flex-direction: column;
 }
+
 .mainBottomRight{
-height: 50%;
-width: 100%;
-
+  height: 50%;
+  width: 100%;
 }
-
-
-
-
-
 
 .adminLeft{
   width: 450px;
   height: 100%;
-background-color: white;
+  background-color: white;
   padding: 10px;
 }
+
 .legend{
   width: 95%;
   height: 70px;
   background-color: rgba(171, 171, 171, 0.066);
 }
 
+/* ============================================================
+   TABLET — PORTRAIT (e.g. iPad 768–1024px)
+   ============================================================ */
+@media (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+  .homePage {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .topArea {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    flex-wrap: wrap;
+    padding: 12px 0;
+    gap: 10px;
+  }
+
+  .topLeft {
+    width: auto;
+    padding-left: 0;
+  }
+
+  .businessName {
+    width: 100%;
+    justify-content: center;
+    height: auto;
+    max-height: none;
+  }
+
+  .brandName {
+    font-size: 2rem;
+    padding-right: 0;
+    justify-content: center;
+    max-height: none;
+    height: auto;
+  }
+
+  .contactInfo {
+    width: 100%;
+    justify-content: center;
+    max-height: none;
+    height: auto;
+  }
+
+  .main {
+    flex-direction: column;
+    height: auto;
+    align-items: stretch;
+    padding-left: 0;
+  }
+
+  .mainLeft,
+  .mainLeft--logged {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .mainActionArea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .rightMain,
+  .mainRight {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+}
+
+/* ============================================================
+   BLOCK LANDSCAPE ON SMALL SCREENS — show rotate message instead
+   ============================================================ */
+@media (max-width: 900px) and (orientation: landscape) {
+  .rotateOverlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #1a1a2e;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .homePage {
+    display: none;
+  }
+}
+
+/* ============================================================
+   PHONE — PORTRAIT
+   ============================================================ */
 @media(max-width:460px) {
   .homePage {
     width: 100%;
@@ -373,7 +460,8 @@ background-color: white;
     min-width: 0;
     height: auto;
   }
-   .topArea {
+
+  .topArea {
     flex-direction: column;
     align-items: center;
     height: auto;

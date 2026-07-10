@@ -142,7 +142,7 @@ const services = [
                 </div>
                 
                 <div className="contactBox">
-                    <h3 className="howToH3">ʜᴏᴡ ᴛᴏ ᴍᴀᴋᴇ ᴀ ʙᴏᴏᴋɪɴɢ</h3>
+                    <h3 className="servicesTitle">How to make a booking</h3>
                     <div className="howToSteps">
                         <div className="howToStep">
                             <div className="stepNumCol">
@@ -212,7 +212,7 @@ const services = [
                     </div>
                 </div>
                <div className="contactBox" id='paymentBox'>
-    <h3 className="howToH3">How To Make a Payment</h3>
+    <h6 className="servicesTitle" id='how'>How To Make a Payment</h6>
     
     <div className="paymentGrid">
         <div className="paymentOption">
