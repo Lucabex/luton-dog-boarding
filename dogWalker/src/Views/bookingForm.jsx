@@ -311,7 +311,7 @@ function BookingForm({ onSubmit, dogs = [], meetingDone }) {
             <span id="accNumb">53186814</span>
         </div>
     </div>
-    <p className="paymentNote">Payment must be completed before the booking start date.</p>
+    <p className="paymentNote">Payment must be completed before the booking start date. Cash payment has to be made at the beginning of the booking.</p>
 </div>
         </div>
     </div>,
