@@ -14,7 +14,7 @@ import { createPortal } from "react-dom"
 function ClassicPublic(){
    
 
-// at the top of your component, before the return:
+
 const [activeService, setActiveService] = useState(null)
 const [showPrivacy, setShowPrivacy] = useState(false)
 const [showTerms, setShowTerms] = useState(false)
@@ -40,9 +40,8 @@ const services = [
         tagline: 'Your dog\'s home away from home',
         description: 'Your dog stays with us overnight in a proper home environment — not a kennel. They get company, comfort, and all the attention they\'re used to.',
         prices: [
-            { label: 'Per night', price: '£35' },
-            { label: '2–5 nights', price: '£30/night' },
-            { label: '6+ nights', price: '£27/night' },
+            { label: 'Per night', price: '£40' },
+         
         ],
         note: 'Drop-off and pick-up times arranged around you.'
     },
@@ -53,8 +52,8 @@ const services = [
         tagline: 'Full day of fun while you work',
         description: 'Drop your dog off in the morning and collect them in the evening, happy and worn out. Great for dogs who struggle with long stretches alone.',
         prices: [
-            { label: 'Full day (up to 8h)', price: '£25' },
-            { label: 'Half day (up to 4h)', price: '£15' },
+            { label: 'Full day (up to 8h)', price: '£35' },
+         
         ],
         note: 'Regular weekly slots can be reserved in advance.'
     },

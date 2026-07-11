@@ -7,7 +7,7 @@ function Dash({ user, token }) {
     const { refreshKey } = useContext(Context)
     const BASIC_URL = "http://192.168.0.209:5208"
 
-    // --- Card expand toggles (one per dashboard card) ---
+    // --- Card expand toggles 
     const [activeExpanded, setActiveExpanded] = useState(false)
     const [nextExpanded, setNextExpanded] = useState(false)
     const [pastExpanded, setPastExpanded] = useState(false)
@@ -19,7 +19,7 @@ function Dash({ user, token }) {
     const [showPicturesModal, setShowPicturesModal] = useState(false)
     const [showWalkModal, setShowWalkModal] = useState(false)
 
-    // --- Active booking: presence & service type ---
+    // --- Active booking
     const [hasActiveBooking, setHasActiveBooking] = useState(false)
     const [showActiveInfo, setShowActiveInfo] = useState(true)
     const [activeServiceType, setActiveServiceType] = useState('')
@@ -33,7 +33,7 @@ function Dash({ user, token }) {
     const [pastBookList, setPastBookinkgList] = useState([])
     const [numOfNight, setNumOfNight] = useState('')
 
-    // --- Active booking: display values ---
+    // --- Active booking values
     const [activeEndValue, setActiveEndValue] = useState('')
     const [activeStartDate, setActiveStartDate] = useState('')
     const [activeNights, setActiveNights] = useState(0)

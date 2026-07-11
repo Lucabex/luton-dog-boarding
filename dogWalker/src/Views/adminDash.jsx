@@ -32,7 +32,7 @@ const [openLogId, setOpenLogId] = useState(null)
     
   ];
 const BASIC_URL = "http://192.168.0.209:5208"
-// add to state
+
 const [galleryInputKey, setGalleryInputKey] = useState(0)
 
 async function handleFalseShow(id){

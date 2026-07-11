@@ -51,7 +51,7 @@ async function handleRequestCode() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: resetEmail })
         })
-        // backend always returns OK to avoid revealing which emails exist
+   
         if (res.ok) {
             setResetStage(2)
             setResetMessage('If that email exists, a code has been sent.')
@@ -76,7 +76,7 @@ async function handleResetPassword() {
         const data = await res.json()
         if (res.ok) {
             setResetMessage('Password updated — you can now log in.')
-            // drop back to login after a moment
+    
             setShowReset(false)
             setResetStage(1)
             setResetEmail('')
@@ -118,7 +118,7 @@ async function handleResetPassword() {
     }
 
     try {
-        // 1. register the user and dog
+
         const res = await fetch('http://192.168.0.209:5208/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -142,7 +142,7 @@ async function handleResetPassword() {
 
         const { dogId } = await res.json()
 
-        // 2. log the user in with the credentials they just set
+   
         const loginRes = await fetch('http://192.168.0.209:5208/api/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -153,7 +153,7 @@ async function handleResetPassword() {
         const token = loginData.token
         localStorage.setItem('token', token)
 
-        // 3. if a photo was chosen, attach it to the new dog
+
         if (petFile) {
             const formData = new FormData()
             formData.append('file', petFile)
@@ -165,7 +165,7 @@ async function handleResetPassword() {
             })
         }
 
-        // 4. enter the app as a logged-in user
+      
         onLogin(loginData)
 
     } catch (err) {

@@ -96,7 +96,7 @@ function isValidEmail(value) {
     const file = e.target.files[0]
     if (!file) return
 
-    setUserpreview(URL.createObjectURL(file))   // immediate preview
+    setUserpreview(URL.createObjectURL(file))   
 
     const formData = new FormData()
     formData.append('file', file)
