@@ -262,9 +262,36 @@ const services = [
     <div className="stage" onClick={() => setShowPrivacy(false)}>
         <div className="modal legalModal" onClick={e => e.stopPropagation()}>
             <h2 className="modalTitle">Privacy Policy</h2>
-            <div className="legalContent">
-                {/* content goes here */}
-            </div>
+            
+                <div className="legalContent">
+    <p>Last updated: July 2026</p>
+
+    <h3>Who we are</h3>
+    <p>Luton Dog Boarding is a small, independently run dog walking, boarding and day care service based in Luton. This policy explains what personal information we collect, how we use it, and your rights regarding that information.</p>
+
+    <h3>What we collect</h3>
+    <p>When you register an account we collect your name, email address, phone number, home address, and username. We also collect information about your dog, including breed, age, size, sex, medical and behavioural notes, and emergency contact details, so we can care for your dog safely.</p>
+    <p>When you make a booking we store the service type, dates, and payment status. If you upload a profile photo or a photo of your dog, this is stored securely and used only within the app.</p>
+
+    <h3>How we use your information</h3>
+    <p>Your information is used to manage your account, process bookings, communicate with you about your booking (including confirmation emails), and to ensure the safety and wellbeing of your dog while in our care. We do not sell or share your information with third parties for marketing purposes.</p>
+
+    <h3>Email communication</h3>
+    <p>We use a third-party email service to send booking confirmations and account-related messages. Your email address is used solely for this purpose.</p>
+
+    <h3>Data storage and security</h3>
+    <p>Your data is stored securely and access is limited to what is necessary to operate the service. Passwords are encrypted and never stored in plain text.</p>
+
+    <h3>How long we keep your data</h3>
+    <p>We retain your account and booking information for as long as your account remains active, or as required to meet legal and accounting obligations. You can request deletion of your account and associated data at any time.</p>
+
+    <h3>Your rights</h3>
+    <p>Under UK data protection law you have the right to access the personal data we hold about you, request corrections, request deletion, and object to how your data is processed. To exercise any of these rights, please contact us directly.</p>
+
+    <h3>Contact</h3>
+    <p>If you have any questions about this policy or how your data is handled, please get in touch at lucabex@gmail.com.</p>
+</div>
+            
             <button className="backBtn" onClick={() => setShowPrivacy(false)}>Close</button>
         </div>
     </div>,
@@ -276,8 +303,35 @@ const services = [
         <div className="modal legalModal" onClick={e => e.stopPropagation()}>
             <h2 className="modalTitle">Terms of Service</h2>
             <div className="legalContent">
-                {/* content goes here */}
-            </div>
+    <p>Last updated: July 2026</p>
+
+    <h3>About this service</h3>
+    <p>Luton Dog Boarding provides dog walking, home boarding, and day care services in and around Luton. By registering an account and making a booking, you agree to the terms outlined below.</p>
+
+    <h3>Registration and meet & greet</h3>
+    <p>All new accounts require an initial meet and greet before bookings can be made. This allows us to meet you and your dog, discuss any specific needs, and confirm suitability before any service begins.</p>
+
+    <h3>Bookings</h3>
+    <p>Bookings are made directly through the app once your account has been approved. All bookings are subject to availability. We reserve the right to decline or cancel a booking at our discretion, including where information provided about a dog's behaviour or health is found to be inaccurate or incomplete.</p>
+
+    <h3>Payment</h3>
+    <p>Payment can be made by bank transfer or cash. Bank transfer details are provided upon booking confirmation. Cash payments must be made in full before the booking begins. Prices are agreed at the time of booking and are subject to change for future bookings.</p>
+
+    <h3>Cancellations</h3>
+    <p>If you need to cancel or amend a booking, please contact us as soon as possible. We ask for reasonable notice where possible so the slot can be made available to others.</p>
+
+    <h3>Your dog's welfare</h3>
+    <p>You confirm that all information provided about your dog, including vaccination status, behaviour, and medical needs, is accurate and complete. We take reasonable care of your dog at all times but cannot be held responsible for illness, injury, or incidents arising from undisclosed medical or behavioural conditions.</p>
+
+    <h3>Liability</h3>
+    <p>While every care is taken, we cannot accept liability for loss, damage, illness or injury arising from circumstances outside of our reasonable control. Owners are responsible for ensuring their dog is fit to attend the booked service.</p>
+
+    <h3>Changes to these terms</h3>
+    <p>These terms may be updated from time to time. Continued use of the service after changes are made constitutes acceptance of the updated terms.</p>
+
+    <h3>Contact</h3>
+    <p>For any questions regarding these terms, please get in touch at lucabex@gmail.com.</p>
+</div>
             <button className="backBtn" onClick={() => setShowTerms(false)}>Close</button>
         </div>
     </div>,

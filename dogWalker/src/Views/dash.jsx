@@ -315,7 +315,7 @@ function Dash({ user, token }) {
                                 {activeExpanded && activeServiceType === 'boarding' && (
                                     <div className="activeExtraBox">
                                         <div className="activeContainer">
-                                            <div className="box">
+                                            <div className="box" id="boxId">
                                                 <div className="activeLeft">
                                                     <h5 id="stDate">Starting date:</h5>
                                                 </div>
@@ -323,7 +323,7 @@ function Dash({ user, token }) {
                                                     <h5 id="stDateD">{activeStartDate}</h5>
                                                 </div>
                                             </div>
-                                            <div className="box">
+                                            <div className="box" id="boxId">
                                                 <div className="activeLeft">
                                                     <h5 id="stDate">Status:</h5>
                                                 </div>
