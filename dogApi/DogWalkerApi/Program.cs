@@ -4,6 +4,7 @@ using DogWalkerApi.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using DogWalkerApi.Services;
 using Resend;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -67,7 +68,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     {
         policy.WithOrigins(
                   "http://localhost:5173",
-                  "http://192.168.0.209:5173"   // your Mac's IP — match what Vite prints
+                  "http://192.168.0.209:5173"  
               )
               .AllowAnyHeader()
               .AllowAnyMethod();

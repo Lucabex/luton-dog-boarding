@@ -420,7 +420,7 @@ function Dash({ user, token }) {
                                                         <div className="imgStage">
                                                             {galleryPhotos.length > 0
                                                                 ? <img
-                                                                    src={`${BASIC_URL}${galleryPhotos[galleryIndex].photoUrl}`}
+                                                                    src={galleryPhotos[galleryIndex].photoUrl}
                                                                     alt="booking"
                                                                     style={{ width: '100%', height: '380px', objectFit: 'cover' }}
                                                                 />
@@ -470,7 +470,7 @@ function Dash({ user, token }) {
                         <div className="imgStage">
                             {galleryPhotos.length > 0
                                 ? <img
-                                    src={`${BASIC_URL}${galleryPhotos[galleryIndex].photoUrl}`}
+                                    src={galleryPhotos[galleryIndex].photoUrl}
                                     alt="booking"
                                     style={{ width: '100%', height: '380px', objectFit: 'cover' }}
                                 />
@@ -520,7 +520,7 @@ function Dash({ user, token }) {
                         <div className="imgStage">
                             {galleryPhotos.length > 0
                                 ? <img
-                                    src={`${BASIC_URL}${galleryPhotos[galleryIndex].photoUrl}`}
+                                   src={galleryPhotos[galleryIndex].photoUrl}
                                     alt="booking"
                                     style={{ width: '100%', height: '380px', objectFit: 'cover' }}
                                 />

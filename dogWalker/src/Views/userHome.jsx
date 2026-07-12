@@ -175,7 +175,7 @@ if (res.ok) {
                         {userPreview
                             ? <img src={userPreview} className="userImagePreview" />
                             : user?.photoUrl
-                            ? <img src={`http://192.168.0.209:5208${user.photoUrl}`} className="userImagePreview" />
+                            ? <img src={user.photoUrl} className="userImagePreview" />
                             : <span>+ Add Photo</span>}
                     </label>
                         <input type="file" accept="image/*" id="userImg" className="profImg" onChange={HandleUserImg} hidden />
@@ -302,7 +302,7 @@ if (res.ok) {
                             <div className="petPhotoSection">
                                 <div className="petPhotoCircle">
                                 {dog.photoUrl
-                        ? <img src={`http://192.168.0.209:5208${dog.photoUrl}`} alt={dog.name} />
+                        ? <img src={dog.photoUrl} alt={dog.name} />
                         : <span>Photo</span>}
                                 </div>
                                 <span className="petNumber">PET {index + 1}</span>

@@ -8,6 +8,7 @@ using DogWalkerApi.Data;
 using DogWalkerApi.Models;
 using DogWalkerApi.DTOs;
 using Resend;
+using DogWalkerApi.Services;
 using Microsoft.AspNetCore.Authorization;
 
 namespace DogWalkerApi.Controllers;
@@ -16,15 +17,17 @@ namespace DogWalkerApi.Controllers;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-   private readonly AppDbContext _context;
+  private readonly AppDbContext _context;
 private readonly IConfiguration _config;
 private readonly IResend _resend;
+private readonly ISupabaseStorageService _storage;
 
-public AuthController(AppDbContext context, IConfiguration config, IResend resend)
+public AuthController(AppDbContext context, IConfiguration config, IResend resend, ISupabaseStorageService storage)
 {
     _context = context;
     _config = config;
     _resend = resend;
+    _storage = storage;
 }
 
     [HttpPost("register")]
@@ -313,17 +316,7 @@ public async Task<IActionResult> UploadPhoto(IFormFile file)
     if (user == null) return NotFound();
   
 
-    var fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
-    var folder = Path.Combine("wwwroot", "uploads", "users");
-    Directory.CreateDirectory(folder);
-    var savePath = Path.Combine(folder, fileName);
-
-    using (var stream = new FileStream(savePath, FileMode.Create))
-    {
-        await file.CopyToAsync(stream);
-    }
-
-    user.PhotoUrl = $"/uploads/users/{fileName}";
+   user.PhotoUrl = await _storage.UploadAsync(file, "users");
     await _context.SaveChangesAsync();
 
     return Ok(new { photoUrl = user.PhotoUrl });

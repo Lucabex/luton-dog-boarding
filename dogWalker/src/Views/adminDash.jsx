@@ -513,7 +513,7 @@ useEffect(()=>{
                       <div key={dog.dogId} className="ownerDogCard">
                         <div className="ownerDogPhoto">
                           {dog.photoUrl
-                            ? <img src={`${BASIC_URL}${dog.photoUrl}`} alt={dog.name} />
+                           ? <img src={dog.photoUrl} alt={dog.name} />
                             : <span>No photo</span>
                           }
                         </div>

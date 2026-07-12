@@ -5,6 +5,7 @@ using System.Security.Claims;
 using DogWalkerApi.Data;
 using DogWalkerApi.Models;
 using DogWalkerApi.DTOs;
+using DogWalkerApi.Services;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 
 [ApiController]
@@ -12,11 +13,13 @@ using Microsoft.AspNetCore.Authorization.Infrastructure;
 public class DogController : ControllerBase
 {
     private readonly AppDbContext _context;
+private readonly ISupabaseStorageService _storage;
 
-    public DogController(AppDbContext context)
-    {
-        _context = context;
-    }
+public DogController(AppDbContext context, ISupabaseStorageService storage)
+{
+    _context = context;
+    _storage = storage;
+}
 
     [HttpGet]
     //[Authorize]
@@ -162,7 +165,7 @@ public async Task<IActionResult> UploadPhoto(int dogId, IFormFile file)
         await file.CopyToAsync(stream);
     }
 
-    dog.PhotoUrl = $"/uploads/dogs/{fileName}";
+    dog.PhotoUrl = await _storage.UploadAsync(file, "dogs");
     await _context.SaveChangesAsync();
 
     return Ok(new { photoUrl = dog.PhotoUrl });

@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using DogWalkerApi.Data;
 using DogWalkerApi.Models;
 using DogWalkerApi.DTOs;
+using DogWalkerApi.Services;
 using Microsoft.AspNetCore.Authorization;
 namespace DogWalkerApi.Controllers;
 
@@ -14,12 +15,14 @@ namespace DogWalkerApi.Controllers;
 [Route("api/[controller]")]
 public class GalleryController : ControllerBase
 {
-    private readonly AppDbContext _context;
+   private readonly AppDbContext _context;
+private readonly ISupabaseStorageService _storage;
 
-    public GalleryController(AppDbContext context)
-    {
-        _context = context;
-    }
+public GalleryController(AppDbContext context, ISupabaseStorageService storage)
+{
+    _context = context;
+    _storage = storage;
+}
 
     [HttpPost("{bookingId}/upload")]
     [Authorize]
@@ -31,21 +34,13 @@ public class GalleryController : ControllerBase
         var booking = await _context.Bookings.FirstOrDefaultAsync(b => b.Id == bookingId);
         if (booking == null) return NotFound();
 
-        var fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
-        var folder = Path.Combine("wwwroot", "uploads", "gallery");
-        Directory.CreateDirectory(folder);
-        var savePath = Path.Combine(folder, fileName);
+       var photoUrl = await _storage.UploadAsync(file, "gallery");
 
-        using (var stream = new FileStream(savePath, FileMode.Create))
-        {
-            await file.CopyToAsync(stream);
-        }
-
-        var photo = new Gallery
-        {
-            BookingId = bookingId,
-            PhotoUrl = $"/uploads/gallery/{fileName}"
-        };
+var photo = new Gallery
+{
+    BookingId = bookingId,
+    PhotoUrl = photoUrl
+};
 
         _context.Gallery.Add(photo);
         await _context.SaveChangesAsync();
