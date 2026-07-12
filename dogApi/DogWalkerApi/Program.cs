@@ -57,6 +57,7 @@ builder.Services.AddHttpClient<ResendClient>();
 builder.Services.Configure<ResendClientOptions>(o => {
     o.ApiToken = builder.Configuration["Resend:ApiKey"]!;
 });
+builder.Services.AddHttpClient<ISupabaseStorageService, SupabaseStorageService>();
 builder.Services.AddTransient<IResend, ResendClient>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
