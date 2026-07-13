@@ -69,7 +69,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         policy.WithOrigins(
                   "http://localhost:5173",
                   "http://192.168.0.209:5173",
-                  "https://prismatic-lily-381fe2.netlify.app"
+                  "https://prismatic-lily-381fe2.netlify.app",
+                  "https://lutondogboarding.co.uk",
+                  "https://www.lutondogboarding.co.uk"
               )
               .AllowAnyHeader()
               .AllowAnyMethod();
