@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { Context } from '../context'
+import { API_URL } from '../apiConfig'
 
 function SlotPopup({ slots }) {
     if (!slots) return null
@@ -36,12 +37,12 @@ function Calendar2() {
 
     useEffect(() => {
         async function fetchAvailability() {
-            const leftRes = await fetch(`http://192.168.0.209:5208/api/availability/month?year=${year}&month=${month + 1}`)
+            const leftRes = await fetch(`${API_URL}/api/availability/month?year=${year}&month=${month + 1}`)
             const leftData = await leftRes.json()
 
             const rightMonth = month === 11 ? 1 : month + 2
             const rightYear = month === 11 ? year + 1 : year
-            const rightRes = await fetch(`http://192.168.0.209:5208/api/availability/month?year=${rightYear}&month=${rightMonth}`)
+            const rightRes = await fetch(`${API_URL}/api/availability/month?year=${rightYear}&month=${rightMonth}`)
             const rightData = await rightRes.json()
 
             const lookup = {}

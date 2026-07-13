@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react"
 import DogCard from './DogCard'
+import { API_URL } from '../apiConfig'
 
 function Admin(){
     const[adminDay,setAdminDay]=useState('');
@@ -14,7 +15,7 @@ function Admin(){
 const [endMonth, setEndMonth] = useState('');
 const [endYear, setEndYear] = useState('');
     useEffect(() => {
-        fetch('http://192.168.0.209:5208/api/dog')
+        fetch(`${API_URL}/api/dog`)
             .then(r => r.json())
             .then(data => setDogs(data))
     }, [])
@@ -40,10 +41,10 @@ const endDate = endDay && endMonth !== '' && endYear
         : null
 
     const endpoint = service === 'walk'
-        ? 'http://192.168.0.209:5208/api/booking/walk'
+        ? `${API_URL}/api/booking/walk`
         : service === 'boarding'
-        ? 'http://192.168.0.209:5208/api/booking/boarding'
-        : 'http://192.168.0.209:5208/api/booking/daycare'
+        ? `${API_URL}/api/booking/boarding`
+        : `${API_URL}/api/booking/daycare`
 
     const nights = startDate && endDate
         ? Math.round((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24))

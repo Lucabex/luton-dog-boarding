@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react'
 import { Context } from '../context'
+import { API_URL } from '../apiConfig'
 
 function AddPet({ token }) {
     const { setAddPet } = useContext(Context)
@@ -31,7 +32,7 @@ function AddPet({ token }) {
     async function handleSubmit() {
     setError('')
     try {
-        const res = await fetch('http://192.168.0.209:5208/api/dog/addpet', {
+        const res = await fetch(`${API_URL}/api/dog/addpet`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -62,7 +63,7 @@ function AddPet({ token }) {
         if (petFile) {
             const formData = new FormData()
             formData.append('file', petFile)
-            await fetch(`http://192.168.0.209:5208/api/dog/${dogId}/photo`, {
+            await fetch(`${API_URL}/api/dog/${dogId}/photo`, {
                 method: 'POST',
                 headers: { Authorization: `Bearer ${token}` },
                 body: formData

@@ -1,11 +1,12 @@
 import { useEffect, useState, useContext } from "react"
 import { createPortal } from "react-dom"
 import { Context } from "../context"
+import { API_URL } from '../apiConfig'
 
 function Dash({ user, token }) {
 
     const { refreshKey } = useContext(Context)
-    const BASIC_URL = "http://192.168.0.209:5208"
+    const BASIC_URL = API_URL
 
     // --- Card expand toggles 
     const [activeExpanded, setActiveExpanded] = useState(false)
@@ -76,7 +77,7 @@ function Dash({ user, token }) {
 
     function loadPastBookings() {
         if (!token) return
-        fetch('http://192.168.0.209:5208/api/Booking/past', {
+        fetch(`${API_URL}/api/Booking/past`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(r => r.json())
@@ -102,7 +103,7 @@ function Dash({ user, token }) {
 
     function loadMyReviews() {
         if (!token) return
-        fetch('http://192.168.0.209:5208/api/Review/myreview', {
+        fetch(`${API_URL}/api/Review/myreview`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(r => r.json())
@@ -138,7 +139,7 @@ function Dash({ user, token }) {
 
     useEffect(() => {
         if (!token) return
-        fetch('http://192.168.0.209:5208/api/Booking/next', {
+        fetch(`${API_URL}/api/Booking/next`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(r => r.json())
@@ -168,7 +169,7 @@ function Dash({ user, token }) {
 
     useEffect(() => {
         if (!token) return
-        fetch('http://192.168.0.209:5208/api/Booking/mine', {
+        fetch(`${API_URL}/api/Booking/mine`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(r => r.json())
@@ -228,7 +229,7 @@ function Dash({ user, token }) {
     async function submitReview() {
         if (reviewRating === 0) return
 
-        const res = await fetch('http://192.168.0.209:5208/api/review', {
+        const res = await fetch(`${API_URL}/api/review`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

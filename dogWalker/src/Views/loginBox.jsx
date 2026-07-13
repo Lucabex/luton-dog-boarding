@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { API_URL } from '../apiConfig'
 
 function LogInBox({ onLogin }) {
     const [iAmRegistering, setIAmregistering] = useState(true)
@@ -46,7 +47,7 @@ const [resetMessage, setResetMessage] = useState('')
 async function handleRequestCode() {
     setResetMessage('')
     try {
-        const res = await fetch('http://192.168.0.209:5208/api/auth/forgot-password', {
+        const res = await fetch(`${API_URL}/api/auth/forgot-password`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: resetEmail })
@@ -64,7 +65,7 @@ async function handleRequestCode() {
 async function handleResetPassword() {
     setResetMessage('')
     try {
-        const res = await fetch('http://192.168.0.209:5208/api/auth/reset-password', {
+        const res = await fetch(`${API_URL}/api/auth/reset-password`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -92,7 +93,7 @@ async function handleResetPassword() {
     async function handleLogin() {
         setLoginError('')
         try {
-            const res = await fetch('http://192.168.0.209:5208/api/auth/login', {
+            const res = await fetch(`${API_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
@@ -119,7 +120,7 @@ async function handleResetPassword() {
 
     try {
 
-        const res = await fetch('http://192.168.0.209:5208/api/auth/register', {
+        const res = await fetch(`${API_URL}/api/auth/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -143,7 +144,7 @@ async function handleResetPassword() {
         const { dogId } = await res.json()
 
    
-        const loginRes = await fetch('http://192.168.0.209:5208/api/auth/login', {
+        const loginRes = await fetch(`${API_URL}/api/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: regUsername, password: regPassword })
@@ -158,7 +159,7 @@ async function handleResetPassword() {
             const formData = new FormData()
             formData.append('file', petFile)
 
-            await fetch(`http://192.168.0.209:5208/api/dog/${dogId}/photo`, {
+            await fetch(`${API_URL}/api/dog/${dogId}/photo`, {
                 method: 'POST',
                 headers: { Authorization: `Bearer ${token}` },
                 body: formData

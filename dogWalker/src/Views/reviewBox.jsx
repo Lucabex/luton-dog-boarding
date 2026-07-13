@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
+import { API_URL } from '../apiConfig'
 
 function ReviewBox(){
     const [revieList, setReviewList] = useState([])
@@ -9,7 +10,7 @@ function ReviewBox(){
     const [expandRevModal,setExpandRevModal]= useState(false)
 
     useEffect(() => {
-        fetch('http://192.168.0.209:5208/api/Review')
+        fetch(`${API_URL}/api/Review`)
             .then(r => r.json())
             .then(data => {
                 setReviewList(data)

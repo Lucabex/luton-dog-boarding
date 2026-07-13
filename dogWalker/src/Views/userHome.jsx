@@ -1,6 +1,7 @@
 import { useState, useEffect,useContext } from "react"
 import{Context} from '../context'
 import { createPortal } from "react-dom"
+import { API_URL } from '../apiConfig'
 
 function UserHome({ user, token,onLogout }) {
     const [userPreview, setUserpreview] = useState(null)
@@ -32,7 +33,7 @@ function UserHome({ user, token,onLogout }) {
 const [editForm, setEditForm] = useState({})
 
 async function handleEditDog(id) {
-    const res = await fetch(`http://192.168.0.209:5208/api/dog/${id}/editdog`, {
+    const res = await fetch(`${API_URL}/api/dog/${id}/editdog`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -58,7 +59,7 @@ async function handleEditDog(id) {
         setEditDogId(null)
         setEditForm({})
         // refresh dogs
-        fetch('http://192.168.0.209:5208/api/dog/mine', {
+        fetch(`${API_URL}/api/dog/mine`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(r => r.json())
@@ -74,7 +75,7 @@ async function handleEditDog(id) {
 
     useEffect(() => {
         if (!token) return
-        fetch('http://192.168.0.209:5208/api/dog/mine', {
+        fetch(`${API_URL}/api/dog/mine`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(r => r.json())
@@ -101,7 +102,7 @@ function isValidEmail(value) {
     const formData = new FormData()
     formData.append('file', file)
 
-    const res = await fetch('http://192.168.0.209:5208/api/auth/userphoto', {
+    const res = await fetch(`${API_URL}/api/auth/userphoto`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
         body: formData
@@ -129,7 +130,7 @@ async function saveField(field) {
     if (field === 'phone' && phoneEdit) params.append('phone', phoneEdit)
     if (field === 'address' && addressEdit) params.append('address', addressEdit)
 
-    const res = await fetch(`http://192.168.0.209:5208/api/auth/edituser?${params.toString()}`, {
+    const res = await fetch(`${API_URL}/api/auth/edituser?${params.toString()}`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}` }
 })

@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { Context } from '../context'
 import BookingForm from "./bookingForm";
 import Calendar from './calendar2'
+import { API_URL } from '../apiConfig'
 
 function CheckBox(){
    
@@ -34,7 +35,7 @@ function CheckBox(){
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (!token) return
-        fetch('http://192.168.0.209:5208/api/auth/me', {
+        fetch(`${API_URL}/api/auth/me`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(r => r.json())
@@ -44,7 +45,7 @@ function CheckBox(){
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (!token) return
-        fetch('http://192.168.0.209:5208/api/dog/mine', {
+        fetch(`${API_URL}/api/dog/mine`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(r => r.json())
@@ -89,10 +90,10 @@ function CheckBox(){
         }
 
         const endpoint = data.service === 'walk'
-            ? 'http://192.168.0.209:5208/api/booking/walk'
+            ? `${API_URL}/api/booking/walk`
             : data.service === 'boarding'
-            ? 'http://192.168.0.209:5208/api/booking/boarding'
-            : 'http://192.168.0.209:5208/api/booking/daycare'
+            ? `${API_URL}/api/booking/boarding`
+            : `${API_URL}/api/booking/daycare`
 
         const body = data.service === 'walk'
             ? { dogId: data.dogId, walkDate: data.startDate, walkSlot: data.walkSlot }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Admin from "./admin";
+import { API_URL } from '../apiConfig'
 
 
 function AdminDash({ user, token }) {
@@ -31,7 +32,7 @@ const [openLogId, setOpenLogId] = useState(null)
     
     
   ];
-const BASIC_URL = "http://192.168.0.209:5208"
+const BASIC_URL = API_URL
 
 const [galleryInputKey, setGalleryInputKey] = useState(0)
 
