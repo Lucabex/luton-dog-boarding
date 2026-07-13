@@ -62,13 +62,14 @@ builder.Services.AddHttpClient<ISupabaseStorageService, SupabaseStorageService>(
 builder.Services.AddTransient<IResend, ResendClient>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-    builder.Services.AddCors(options =>
+   builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReact", policy =>
     {
         policy.WithOrigins(
                   "http://localhost:5173",
-                  "http://192.168.0.209:5173"  
+                  "http://192.168.0.209:5173",
+                  "https://prismatic-lily-381fe2.netlify.app"
               )
               .AllowAnyHeader()
               .AllowAnyMethod();
