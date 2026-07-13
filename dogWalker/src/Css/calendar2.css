@@ -33,10 +33,14 @@
 .av1{
   text-align: center;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid greenyellow;
+  border-bottom: 2px solid rgba(172, 255, 47, 0.36);
   font-size: 22px;
 
+  width: 100%;
+  height: 100%;
 }
+
+
 .leftBox, .rightBox {
   display: flex;
   flex-direction: column;
@@ -134,17 +138,14 @@
 }
 
 .slot-popup {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
     background: white;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 8px 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     white-space: nowrap;
-    z-index: 100;
+    z-index: 1000;
     pointer-events: none;
 }
 
@@ -166,10 +167,17 @@
 
 
 .titleBox{
-  height: 60px;
+  height: 39px;
   width: 100%;
   margin-bottom: 10px;
-  border-radius: 12px;
+
+  margin-bottom: 10px;
+  background-color: rgba(34, 139, 34, 0.142);
+}
+.emptyxx{
+  width: 100%;
+  height: 35px;
+  background-color: white;
 }
 .didascalia{
   width: 95%;

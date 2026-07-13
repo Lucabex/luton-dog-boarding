@@ -1,8 +1,29 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState, useRef, useLayoutEffect } from "react"
+import { createPortal } from "react-dom"
 import { Context } from '../context'
 import { API_URL } from '../apiConfig'
 
-function SlotPopup({ slots }) {
+function SlotPopup({ slots, anchorRect }) {
+    const popupRef = useRef(null)
+    const [style, setStyle] = useState({ top: 0, left: 0, opacity: 0 })
+
+    useLayoutEffect(() => {
+        if (!popupRef.current || !anchorRect) return
+        const popupRect = popupRef.current.getBoundingClientRect()
+        const margin = 8
+
+        let left = anchorRect.left + anchorRect.width / 2 - popupRect.width / 2
+        if (left < margin) {
+            left = margin
+        } else if (left + popupRect.width > window.innerWidth - margin) {
+            left = window.innerWidth - margin - popupRect.width
+        }
+
+        const top = anchorRect.top - popupRect.height - 8
+
+        setStyle({ top, left, opacity: 1 })
+    }, [anchorRect])
+
     if (!slots) return null
 
     const labels = {
@@ -13,8 +34,12 @@ function SlotPopup({ slots }) {
         daycare: "Daycare"
     }
 
-    return (
-        <div className="slot-popup">
+    return createPortal(
+        <div
+            className="slot-popup"
+            ref={popupRef}
+            style={{ top: `${style.top}px`, left: `${style.left}px`, opacity: style.opacity }}
+        >
             {Object.entries(slots).map(([key, value]) => (
                 <div key={key} className="slot-popup__row">
                     <span
@@ -24,7 +49,8 @@ function SlotPopup({ slots }) {
                     <span>{labels[key]}</span>
                 </div>
             ))}
-        </div>
+        </div>,
+        document.body
     )
 }
 
@@ -32,6 +58,7 @@ function Calendar2() {
     const { month, year, MoveBack, MoveForward, refreshKey } = useContext(Context)
     const [availability, setAvailability] = useState({})
     const [hoveredDay, setHoveredDay] = useState(null)
+    const [anchorRect, setAnchorRect] = useState(null)
     const weekDay = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     const monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -87,11 +114,15 @@ function Calendar2() {
             <div
                 className={`dayCard ${dayData ? `dayCard--${dayData.status}` : ''}`}
                 key={index}
-                onMouseEnter={() => number && setHoveredDay(uniqueKey)}
+                onMouseEnter={(e) => {
+                    if (!number) return
+                    setHoveredDay(uniqueKey)
+                    setAnchorRect(e.currentTarget.getBoundingClientRect())
+                }}
                 onMouseLeave={() => setHoveredDay(null)}
             >
                 {number}
-                {hoveredDay === uniqueKey && <SlotPopup slots={dayData?.slots} />}
+                {hoveredDay === uniqueKey && <SlotPopup slots={dayData?.slots} anchorRect={anchorRect} />}
             </div>
         )
     }
