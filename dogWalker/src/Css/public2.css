@@ -684,3 +684,21 @@
 .footerLink:hover {
     color: #ff8000;
 }
+
+
+@media (max-width:470px){
+    .servicesTitle{
+        font-size: 22px;
+    }
+      #how{
+        font-size: 20px;
+    }
+}
+@media (max-width:390px){
+    .servicesTitle{
+        font-size: 18px;
+    }
+    #how{
+        font-size: 18px;
+    }
+}
