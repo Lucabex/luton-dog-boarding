@@ -315,9 +315,9 @@
 }
 
 /* ============================================================
-   TABLET — PORTRAIT (e.g. iPad 768–1024px)
+   TABLET — 601px to 1024px, ANY orientation
    ============================================================ */
-@media (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+@media (min-width: 601px) and (max-width: 1024px) {
   .homePage {
     width: 100%;
     height: auto;
@@ -390,9 +390,10 @@
 }
 
 /* ============================================================
-   BLOCK LANDSCAPE ON SMALL SCREENS — show rotate message instead
+   ROTATE OVERLAY — only genuinely short landscape viewports
+   (phones held sideways), NOT tablets or resized desktops
    ============================================================ */
-@media (max-width: 900px) and (orientation: landscape) {
+@media (max-height: 500px) and (orientation: landscape) {
   .rotateOverlay {
     display: flex;
     position: fixed;
@@ -416,7 +417,7 @@
 }
 
 /* ============================================================
-   PHONE — PORTRAIT
+   PHONE — up to 600px
    ============================================================ */
 @media(max-width:600px) {
   .homePage {
