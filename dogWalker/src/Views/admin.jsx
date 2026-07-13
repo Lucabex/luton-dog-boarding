@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react"
-import DogCard from './DogCard'
+import DogCard from './dogCard'
 import { API_URL } from '../apiConfig'
 
 function Admin(){
