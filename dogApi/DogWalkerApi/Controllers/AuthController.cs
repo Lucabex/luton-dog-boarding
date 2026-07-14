@@ -10,9 +10,9 @@ using DogWalkerApi.DTOs;
 using Resend;
 using DogWalkerApi.Services;
 using Microsoft.AspNetCore.Authorization;
-
+ 
 namespace DogWalkerApi.Controllers;
-
+ 
 [ApiController]
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
@@ -21,7 +21,7 @@ public class AuthController : ControllerBase
 private readonly IConfiguration _config;
 private readonly IResend _resend;
 private readonly ISupabaseStorageService _storage;
-
+ 
 public AuthController(AppDbContext context, IConfiguration config, IResend resend, ISupabaseStorageService storage)
 {
     _context = context;
@@ -29,16 +29,16 @@ public AuthController(AppDbContext context, IConfiguration config, IResend resen
     _resend = resend;
     _storage = storage;
 }
-
+ 
     [HttpPost("register")]
     public async Task<IActionResult> Register(RegisterDto dto)
     {
        if (await _context.Users.AnyAsync(u => u.Username.ToLower() == dto.Username.ToLower()))
     return BadRequest("Username already taken");
-
+ 
 if (await _context.Users.AnyAsync(u => u.Email.ToLower() == dto.Email.ToLower()))
     return BadRequest("Email already registered");
-
+ 
 var user = new User
 {
     FirstName = dto.FirstName,
@@ -51,10 +51,10 @@ var user = new User
     City = dto.City,
     Postcode = dto.Postcode
 };
-
+ 
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
-
+ 
         var dog = new Dog
         {
             OwnerId = user.Id,
@@ -70,7 +70,7 @@ var user = new User
             EmergencyContactName = dto.EmergencyContactName,
             EmergencyContactPhone = dto.EmergencyContactPhone
         };
-
+ 
         _context.Dogs.Add(dog);
         await _context.SaveChangesAsync();
 try
@@ -87,7 +87,7 @@ try
         <p>Looking forward to meeting you,<br/>Luton Dog Boarding</p>
     ";
     await _resend.EmailSendAsync(welcomeEmail);
-
+ 
     var notifyEmail = new EmailMessage();
     notifyEmail.From = "bookings@lutondogboarding.co.uk";
     notifyEmail.To.Add("lucabex@gmail.com");
@@ -108,18 +108,18 @@ catch (Exception ex)
 }
         return Ok(new { dogId = dog.Id });
     }
-
+ 
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginDto dto)
     {
        var user = await _context.Users
     .FirstOrDefaultAsync(u => u.Username.ToLower() == dto.Username.ToLower());
-
+ 
         if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
             return Unauthorized("Invalid username or password");
-
+ 
         var token = GenerateJwtToken(user);
-
+ 
         return Ok(new
         {
             user.Id,
@@ -136,7 +136,7 @@ catch (Exception ex)
             token
         });
     }
-
+ 
     [HttpGet("owners")]
     [Authorize]
     public async Task<IActionResult> AllOwner()
@@ -180,34 +180,34 @@ catch (Exception ex)
                 }).ToList()
             })
             .ToListAsync();
-
+ 
         return Ok(owners);
     }
-
+ 
     [HttpPatch("{id}/meeting")]
     [Authorize]
     public async Task<IActionResult> ChangeMeeting(int id)
     {
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
         if (user == null) return NotFound();
-
+ 
         user.MeetingDone = !user.MeetingDone;
         await _context.SaveChangesAsync();
         return NoContent();
     }
-
+ 
     [HttpPatch("{id}/approve")]
     [Authorize]
     public async Task<IActionResult> Approve(int id)
     {
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
         if (user == null) return NotFound();
-
+ 
         user.IsApproved = !user.IsApproved;
         await _context.SaveChangesAsync();
         return NoContent();
     }
-
+ 
     [HttpGet("{id}/isapproved")]
     [Authorize]
     public async Task<IActionResult> IsApproved(int id)
@@ -216,7 +216,7 @@ catch (Exception ex)
         if (user == null) return NotFound();
         return Ok(user.IsApproved);
     }
-
+ 
     [HttpGet("me")]
     [Authorize]
     public async Task<IActionResult> GetMe()
@@ -226,7 +226,7 @@ catch (Exception ex)
         if (user == null) return NotFound();
         return Ok(user.IsApproved);
     }
-
+ 
     private string GenerateJwtToken(User user)
     {
         var claims = new[]
@@ -235,7 +235,7 @@ catch (Exception ex)
             new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Name, user.Username),
             new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Email, user.Email)
         };
-
+ 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var token = new JwtSecurityToken(
@@ -243,53 +243,53 @@ catch (Exception ex)
             expires: DateTime.UtcNow.AddDays(7),
             signingCredentials: creds
         );
-
+ 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
     [HttpPost("forgot-password")]
 public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto dto)
 {
     var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
-
+ 
     // Always return OK
     if (user == null)
         return Ok(new { message = "If that email exists, a code has been sent." });
-
+ 
     var code = Random.Shared.Next(100000, 999999).ToString();
     user.ResetCodeHash = BCrypt.Net.BCrypt.HashPassword(code);
     user.ResetCodeExpiry = DateTime.UtcNow.AddMinutes(15);
     await _context.SaveChangesAsync();
-
+ 
     // send `code` via Resend, same pattern as your booking emails
     await SendResetEmail(user.Email, code);
-
+ 
     return Ok(new { message = "If that email exists, a code has been sent." });
 }
 [HttpPost("reset-password")]
 public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
 {
     var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
-
+ 
     if (user == null || user.ResetCodeHash == null || user.ResetCodeExpiry == null)
         return BadRequest(new { message = "Invalid or expired code." });
-
+ 
     if (user.ResetCodeExpiry < DateTime.UtcNow)
         return BadRequest(new { message = "Code has expired." });
-
+ 
     if (!BCrypt.Net.BCrypt.Verify(dto.Code, user.ResetCodeHash))
         return BadRequest(new { message = "Invalid code." });
-
+ 
     user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
     user.ResetCodeHash = null;        // single-use: clear it
     user.ResetCodeExpiry = null;
     await _context.SaveChangesAsync();
-
+ 
     return Ok(new { message = "Password updated. You can now log in." });
 }
 private async Task SendResetEmail(string toEmail, string code)
 {
     var resend = ResendClient.Create(_config["Resend:ApiKey"]);
-
+ 
     var message = new EmailMessage
     {
         From = "bookings@lutondogboarding.co.uk",
@@ -300,7 +300,7 @@ private async Task SendResetEmail(string toEmail, string code)
             <p>Your reset code is: <strong>{code}</strong></p>
             <p>This code expires in 15 minutes. If you didn't request this, you can ignore this email.</p>"
     };
-
+ 
     await resend.EmailSendAsync(message);
 }
 [HttpPost("userphoto")]
@@ -309,16 +309,40 @@ public async Task<IActionResult> UploadPhoto(IFormFile file)
 {
     if (file == null || file.Length == 0)
         return BadRequest("No file uploaded");
-
+ 
     var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-
+ 
     var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
     if (user == null) return NotFound();
   
-
+ 
    user.PhotoUrl = await _storage.UploadAsync(file, "users");
     await _context.SaveChangesAsync();
-
+ 
     return Ok(new { photoUrl = user.PhotoUrl });
+}
+ 
+[HttpPost("edituser")]
+[Authorize]
+public async Task<IActionResult> EditUser([FromQuery] string? name, [FromQuery] string? email, [FromQuery] string? phone, [FromQuery] string? address)
+{
+    var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+    var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+    if (user == null) return NotFound();
+ 
+    if (!string.IsNullOrWhiteSpace(name)) user.FirstName = name;
+    if (!string.IsNullOrWhiteSpace(email)) user.Email = email.ToLower();
+    if (!string.IsNullOrWhiteSpace(phone)) user.Phone = phone;
+    if (!string.IsNullOrWhiteSpace(address)) user.StreetAddress = address;
+ 
+    await _context.SaveChangesAsync();
+ 
+    return Ok(new
+    {
+        user.FirstName,
+        user.Email,
+        user.Phone,
+        user.StreetAddress
+    });
 }
 }
