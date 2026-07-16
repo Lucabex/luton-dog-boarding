@@ -31,6 +31,26 @@ function Provider({children}){
     }
 
     function MoveBack(){
+       const today = new Date();
+       const currentMonth = today.getMonth();
+       const currentYear = today.getFullYear();
+
+        let targetMonth = month - 1;
+        let targetYear = year;
+
+       if (targetMonth < 0) {
+        targetMonth = 11;
+        targetYear = year - 1;
+    }
+
+        // Block if the target is before the current real month
+        if (targetYear < currentYear || (targetYear === currentYear && targetMonth < currentMonth)) {
+            return "not allowed";
+        }
+
+        setMonth(targetMonth);
+        setYear(targetYear);
+    
         if (month === 0){
             setMonth(11)
             setYear(year - 1)
