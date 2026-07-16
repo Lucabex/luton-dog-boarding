@@ -18,6 +18,7 @@ function ClassicPublic(){
 const [activeService, setActiveService] = useState(null)
 const [showPrivacy, setShowPrivacy] = useState(false)
 const [showTerms, setShowTerms] = useState(false)
+const [showInsurance, setShowInsurance] = useState(false)
 
 const services = [
     {
@@ -250,6 +251,7 @@ const services = [
                 <h4 className="footerHeading">Legal</h4>
                 <span className="footerLink" onClick={() => setShowPrivacy(true)}>Privacy Policy</span>
                 <span className="footerLink" onClick={() => setShowTerms(true)}>Terms of Service</span>
+                <span className="footerLink" onClick={() => setShowInsurance(true)}>Our Insurance</span>
             </div>
         </div>
 
@@ -332,6 +334,45 @@ const services = [
     <p>For any questions regarding these terms, please get in touch at lucabex@gmail.com.</p>
 </div>
             <button className="backBtn" onClick={() => setShowTerms(false)}>Close</button>
+        </div>
+    </div>,
+    document.body
+)}
+
+{showInsurance && createPortal(
+    <div className="stage" onClick={() => setShowInsurance(false)}>
+        <div className="modal legalModal" onClick={e => e.stopPropagation()}>
+            <h2 className="modalTitle">Our Insurance</h2>
+            <div className="legalContent">
+    <p>Last updated: July 2026</p>
+
+    <h3>Cover summary</h3>
+    <p>Luton Dog Boarding holds Public Liability insurance up to £1,000,000 any one occurrence, arranged through Protectivity. This includes Care, Custody and Control cover for animals while they are in our care, so your dog is protected for the full duration of a walk, boarding stay, or day care visit.</p>
+
+    <h3>What this means for you</h3>
+    <p>If an accident happens as a result of our service, whether that involves your dog, another person, or someone else's property, this policy is in place to cover it. It applies across all the services we offer, including dog walking, home boarding, day care, and pet sitting.</p>
+
+    <h3>Our policy provider</h3>
+    <p>Our cover is underwritten through Protectivity, a specialist provider of pet business insurance in the UK. If you would like to verify our cover directly, you're welcome to contact them or ask us for the current certificate.</p>
+
+    <h3>Certificate</h3>
+    <p>A copy of our current Evidence of Insurance certificate is available to view or download below.</p>
+    <p style={{ marginTop: '14px' }}>
+        <a
+            href="/insurance-certificate.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footerLink"
+            style={{ color: '#b05e1a', fontWeight: 600, textDecoration: 'underline' }}
+        >
+            View certificate (PDF)
+        </a>
+    </p>
+
+    <h3>Contact</h3>
+    <p>If you have any questions about our insurance cover, please get in touch at lucabex@gmail.com.</p>
+</div>
+            <button className="backBtn" onClick={() => setShowInsurance(false)}>Close</button>
         </div>
     </div>,
     document.body
