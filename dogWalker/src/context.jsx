@@ -2,8 +2,10 @@ import { createContext,useState } from "react";
 const Context = createContext()
 
 function Provider({children}){
+    let today = new Date();
 
-    const [month,setMonth] = useState(5)
+    let startingMonth = today.getMonth();  
+    const [month,setMonth] = useState(startingMonth)
     const [year,setYear] = useState(2026)
     const [userName,setUserName] = useState()
     const [petName,setPetName] = useState()
