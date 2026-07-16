@@ -62,54 +62,54 @@ public class BookingController : ControllerBase
     }
 
     [HttpPost("walk")]
-    public async Task<IActionResult> BookWalk(WalkBookingDto dto)
+public async Task<IActionResult> BookWalk(WalkBookingDto dto)
+{
+    var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+    var walkDate = DateTime.SpecifyKind(dto.WalkDate, DateTimeKind.Utc);
+
+    var conflict = await _context.Bookings.AnyAsync(b =>
+        b.WalkDate == walkDate &&
+        b.WalkSlot == dto.WalkSlot &&
+        b.Status != "rejected" &&
+        b.Status != "cancelled");
+
+    if (conflict)
+        return BadRequest("That slot is already booked");
+
+    var booking = new Booking
     {
-        var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-        var walkDate = DateTime.SpecifyKind(dto.WalkDate, DateTimeKind.Utc);
+        UserId = userId,
+        DogId = dto.DogId,
+        ServiceType = "walk",
+        WalkDate = walkDate,
+        WalkSlot = dto.WalkSlot,
+        Status = "pending"
+    };
 
-        var conflict = await _context.Bookings.AnyAsync(b =>
-            b.WalkDate == walkDate &&
-            b.WalkSlot == dto.WalkSlot &&
-            b.Status != "rejected" &&
-            b.Status != "cancelled");
+    _context.Bookings.Add(booking);
+    await _context.SaveChangesAsync();
 
-        if (conflict)
-            return BadRequest("That slot is already booked");
-
-        var booking = new Booking
-        {
-            UserId = userId,
-            DogId = dto.DogId,
-            ServiceType = "walk",
-            WalkDate = walkDate,
-            WalkSlot = dto.WalkSlot,
-            Status = "pending"
-        };
-
-        _context.Bookings.Add(booking);
-        await _context.SaveChangesAsync();
-
-        try
-        {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
-            if (user != null)
-                await SendConfirmationEmail(user.Email, user.FirstName, "walk", $"{walkDate:dd/MM/yyyy}", booking.Id, 15);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Email failed: {ex.Message}");
-        }
-
-        return Ok(new BookingResponseDto
-        {
-            Id = booking.Id,
-            ServiceType = booking.ServiceType,
-            Status = booking.Status,
-            CreatedAt = booking.CreatedAt,
-            WalkDate = booking.WalkDate,
-            WalkSlot = booking.WalkSlot
-        });
+    try
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+        if (user != null)
+            await SendConfirmationEmail(user.Email, user.FirstName, "walk", $"{walkDate:dd/MM/yyyy}", booking.Id, 15);
     }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Email failed: {ex.Message}");
+    }
+
+    return Ok(new BookingResponseDto
+    {
+        Id = booking.Id,
+        ServiceType = booking.ServiceType,
+        Status = booking.Status,
+        CreatedAt = booking.CreatedAt,
+        WalkDate = booking.WalkDate,
+        WalkSlot = booking.WalkSlot
+    });
+}
 
     [HttpPost("boarding")]
     public async Task<IActionResult> BookBoarding(BoardingBookingDto dto)
@@ -118,15 +118,15 @@ public class BookingController : ControllerBase
         var startDate = DateTime.SpecifyKind(dto.StartDate, DateTimeKind.Utc);
         var endDate = DateTime.SpecifyKind(dto.EndDate, DateTimeKind.Utc);
 
-        var conflict = await _context.Bookings.AnyAsync(b =>
-            b.ServiceType == "boarding" &&
-            b.Status != "rejected" &&
-            b.Status != "Canceled" &&
-            b.StartDate < endDate &&
-            b.EndDate > startDate);
+        var overlapping = await _context.Bookings.CountAsync(b =>
+    b.ServiceType == "boarding" &&
+    b.Status != "rejected" &&
+    b.Status != "Canceled" &&
+    b.StartDate < endDate &&
+    b.EndDate > startDate);
 
-        if (conflict)
-            return BadRequest("The selected period is not available");
+if (overlapping >= 2)
+    return BadRequest("Both boarding spots are taken for the selected period");
 
         var booking = new Booking
         {
@@ -169,52 +169,51 @@ public class BookingController : ControllerBase
     }
 
     [HttpPost("daycare")]
-    public async Task<IActionResult> BookDaycare(DaycareBookingDto dto)
+public async Task<IActionResult> BookDaycare(DaycareBookingDto dto)
+{
+    var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+    var dayCareDay = DateTime.SpecifyKind(dto.DaycareDate, DateTimeKind.Utc);
+
+    var conflict = await _context.Bookings.AnyAsync(b =>
+        b.DaycareDate == dayCareDay &&
+        b.Status != "rejected" &&
+        b.Status != "cancelled");
+
+    if (conflict)
+        return BadRequest("The date selected is not available");
+
+    var booking = new Booking
     {
-        var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-        var dayCareDay = DateTime.SpecifyKind(dto.DaycareDate, DateTimeKind.Utc);
+        UserId = userId,
+        DogId = dto.DogId,
+        ServiceType = "daycare",
+        DaycareDate = dayCareDay,
+        Status = "pending"
+    };
 
-        var conflict = await _context.Bookings.AnyAsync(b =>
-            b.DaycareDate == dayCareDay &&
-            b.Status != "rejected" &&
-            b.Status != "cancelled");
+    _context.Bookings.Add(booking);
+    await _context.SaveChangesAsync();
 
-        if (conflict)
-            return BadRequest("The date selected is not available");
-
-        var booking = new Booking
-        {
-            UserId = userId,
-            DogId = dto.DogId,
-            ServiceType = "daycare",
-            DaycareDate = dayCareDay,
-            Status = "pending"
-        };
-
-        _context.Bookings.Add(booking);
-        await _context.SaveChangesAsync();
-
-        try
-        {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
-            if (user != null)
-                await SendConfirmationEmail(user.Email, user.FirstName, "daycare", $"{dayCareDay:dd/MM/yyyy}", booking.Id, 35);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Email failed: {ex.Message}");
-        }
-
-        return Ok(new BookingResponseDto
-        {
-            Id = booking.Id,
-            ServiceType = booking.ServiceType,
-            Status = booking.Status,
-            CreatedAt = booking.CreatedAt,
-            DaycareDate = booking.DaycareDate
-        });
+    try
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+        if (user != null)
+            await SendConfirmationEmail(user.Email, user.FirstName, "daycare", $"{dayCareDay:dd/MM/yyyy}", booking.Id, 35);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Email failed: {ex.Message}");
     }
 
+    return Ok(new BookingResponseDto
+    {
+        Id = booking.Id,
+        ServiceType = booking.ServiceType,
+        Status = booking.Status,
+        CreatedAt = booking.CreatedAt,
+        DaycareDate = booking.DaycareDate
+    });
+}
     [HttpGet("mine")]
     public async Task<IActionResult> MyActiveService()
     {
