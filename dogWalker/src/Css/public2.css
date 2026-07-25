@@ -613,6 +613,10 @@
     color: #00ffbb;
     margin: 0;
 }
+.footerBottom a{
+    text-decoration: none;
+  color: #00ffbb;
+}
 
 .legalModal {
     max-width: 600px;
