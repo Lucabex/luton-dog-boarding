@@ -257,7 +257,7 @@ const services = [
 
     <div className="footerBottom">
         <p className="footerCopyright">© {new Date().getFullYear()} Luton Dog Boarding. All rights reserved.</p>
-        <p className="footerCredit">Site by Koudelka Web Design</p>
+       <p className="footerCredit"><a href="https://www.koudelkadev.co.uk" target="_blank" rel="noopener noreferrer">Site by Koudelka Web Design</a></p>
     </div>
     {showPrivacy && createPortal(
     <div className="stage" onClick={() => setShowPrivacy(false)}>
