@@ -74,8 +74,8 @@
 .textArea h4{
   font-size: 30px;
   color: #f77c09;
-  
-  
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 
 }
 .banner1{
@@ -93,7 +93,8 @@
 }
 .banner1 h4{
     font-size: 40px;
-
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: mediumvioletred;
 }
 .textArea p{

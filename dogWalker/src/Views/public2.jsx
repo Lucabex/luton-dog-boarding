@@ -1,4 +1,4 @@
-import HomeImg from'../assets/og-image.webp'
+import HomeImg from'../assets/HomeImg.webp'
 import Dog1 from '../assets/dog1.webp'
 import Dog2 from '../assets/dog2.webp'
 import Dog3 from '../assets/dog3.webp'
@@ -8,7 +8,6 @@ import Dog6 from '../assets/dog6.webp'
 import Dog7 from '../assets/dog7.webp'
 import Dog8 from '../assets/dog8.webp'
 import paws2 from '../assets/paws2.webp'
-import foto from '../assets/foto.png'
 import { createPortal } from "react-dom"
  import { useState } from "react"
 function ClassicPublic(){
@@ -64,10 +63,10 @@ const services = [
         <div className="publicV">
             <div className="topLineP">
                 <div className="picture1">
-                    <img className="homeImg" src={HomeImg} alt="Dog relaxing during home boarding in Luton" />
+                    <img className="homeImg" src={HomeImg} alt="Dog relaxing during home boarding in Luton" width="400" height="400" />
                 </div>
                 <div className="textArea">
-                            <h4>ᖴOᖇ TᕼE ᒪOᐯE Oᖴ ᖴᑌᖇ</h4>
+                            <h4>For the love of fur</h4>
                             
                           
                 </div>
@@ -75,7 +74,7 @@ const services = [
             </div>
 
             <div className="banner1">
-                <h4>𝔸𝕓𝕠𝕦𝕥 𝕦𝕤</h4>
+                <h4>About us</h4>
                
                 <p className="text1">    
                    Luton Dog Boarding is a small, personal service, not an agency, not a 
@@ -93,15 +92,15 @@ const services = [
 
                         <div className="photoGrid">
                 <div className="photoGridMain">
-                    <img src={Dog4} alt="Dog on a walk with Luton Dog Boarding" className="photoGridImg" />
+                    <img src={Dog4} alt="Dog on a walk with Luton Dog Boarding" className="photoGridImg" width="900" height="675" loading="lazy" />
                 </div>
                 <div className="photoGridSide">
-                    <img src={Dog2} alt="Dog settling in during home boarding in Luton" className="photoGridImg" />
-                    <img src={Dog3} alt="Dog enjoying day care with Luton Dog Boarding" className="photoGridImg" />
-                    <img src={Dog1} alt="Dog being walked around Luton" className="photoGridImg" />
-                    <img src={Dog5} alt="Dog relaxing at home during a boarding stay" className="photoGridImg" />
-                    <img src={Dog6} alt="Dog playing during day care in Luton" className="photoGridImg" />
-                    <img src={Dog7} alt="Dog resting comfortably during home boarding" className="photoGridImg" />
+                    <img src={Dog2} alt="Dog settling in during home boarding in Luton" className="photoGridImg" width="900" height="1200" loading="lazy" />
+                    <img src={Dog3} alt="Dog enjoying day care with Luton Dog Boarding" className="photoGridImg" width="900" height="1200" loading="lazy" />
+                    <img src={Dog1} alt="Dog being walked around Luton" className="photoGridImg" width="900" height="1200" loading="lazy" />
+                    <img src={Dog5} alt="Dog relaxing at home during a boarding stay" className="photoGridImg" width="900" height="1200" loading="lazy" />
+                    <img src={Dog6} alt="Dog playing during day care in Luton" className="photoGridImg" width="900" height="1200" loading="lazy" />
+                    <img src={Dog7} alt="Dog resting comfortably during home boarding" className="photoGridImg" width="900" height="1200" loading="lazy" />
                 </div>
             </div>
 
@@ -201,7 +200,7 @@ const services = [
                 </div>
                
                 <div className="contactBox">
-                    <h3 className="contactTitle">𝔾𝕖𝕥 𝕚𝕟 𝕥𝕠𝕦𝕔𝕙</h3>
+                    <h3 className="contactTitle">Get in touch</h3>
                     <div className="contactDetails">
                         <div className="contactRow">
                          
