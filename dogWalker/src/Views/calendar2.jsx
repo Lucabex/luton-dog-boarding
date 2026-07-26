@@ -134,7 +134,7 @@ function Calendar2() {
         <div className="mainCalendar">
             <div className="titleBox">
 
-                <h1 className="av1">My availability</h1>
+                <h2 className="av1">My availability</h2>
             </div>
             
             <div className="calendarBox">

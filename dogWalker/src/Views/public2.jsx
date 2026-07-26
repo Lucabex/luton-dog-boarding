@@ -1,4 +1,4 @@
-import HomeImg from'../assets/HomeImg.webp'
+import HomeImg from'../assets/og-image.webp'
 import Dog1 from '../assets/dog1.webp'
 import Dog2 from '../assets/dog2.webp'
 import Dog3 from '../assets/dog3.webp'
@@ -64,7 +64,7 @@ const services = [
         <div className="publicV">
             <div className="topLineP">
                 <div className="picture1">
-                    <img className="homeImg" src={HomeImg} alt="" />
+                    <img className="homeImg" src={HomeImg} alt="Dog relaxing during home boarding in Luton" />
                 </div>
                 <div className="textArea">
                             <h4>ᖴOᖇ TᕼE ᒪOᐯE Oᖴ ᖴᑌᖇ</h4>
@@ -78,7 +78,7 @@ const services = [
                 <h4>𝔸𝕓𝕠𝕦𝕥 𝕦𝕤</h4>
                
                 <p className="text1">    
-                   Luton Dog Walker is a small, personal service, not an agency, not a 
+                   Luton Dog Boarding is a small, personal service, not an agency, not a 
                    platform. When you book with us, your dog is looked after by the same 
                    family every time. We keep group sizes small
                    and we treat every dog like it's ours.
@@ -93,15 +93,15 @@ const services = [
 
                         <div className="photoGrid">
                 <div className="photoGridMain">
-                    <img src={Dog4} alt="dog" className="photoGridImg" />
+                    <img src={Dog4} alt="Dog on a walk with Luton Dog Boarding" className="photoGridImg" />
                 </div>
                 <div className="photoGridSide">
-                    <img src={Dog2} alt="dog" className="photoGridImg" />
-                    <img src={Dog3} alt="dog" className="photoGridImg" />
-                    <img src={Dog1} alt="dog" className="photoGridImg" />
-                    <img src={Dog5} alt="dog" className="photoGridImg" />
-                    <img src={Dog6} alt="dog" className="photoGridImg" />
-                    <img src={Dog7} alt="dog" className="photoGridImg" />
+                    <img src={Dog2} alt="Dog settling in during home boarding in Luton" className="photoGridImg" />
+                    <img src={Dog3} alt="Dog enjoying day care with Luton Dog Boarding" className="photoGridImg" />
+                    <img src={Dog1} alt="Dog being walked around Luton" className="photoGridImg" />
+                    <img src={Dog5} alt="Dog relaxing at home during a boarding stay" className="photoGridImg" />
+                    <img src={Dog6} alt="Dog playing during day care in Luton" className="photoGridImg" />
+                    <img src={Dog7} alt="Dog resting comfortably during home boarding" className="photoGridImg" />
                 </div>
             </div>
 

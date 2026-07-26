@@ -187,7 +187,7 @@ function handlePetImage(e) {
             {iAmRegistering ? (
                 showReset ? (
                     <div className="log-in">
-                        <h1>Reset password</h1>
+                        <h2>Reset password</h2>
 
                         {resetStage === 1 && (
                             <>
@@ -217,7 +217,7 @@ function handlePetImage(e) {
                     </div>
                 ) : (
                 <div className="log-in">
-                    <h1>Log-in</h1>
+                    <h2>Log-in</h2>
                     {regSuccess && <p style={{ color: 'green', fontSize: '12px' }}>Account created — please log in</p>}
                     <label>Account name</label>
                     <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />

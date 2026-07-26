@@ -39,7 +39,7 @@ function ReviewBox(){
         setCurrentIndex(0)
     }
 
-    if (sorted.length === 0) return <div className="reviewBox"><h1>Reviews</h1><p>No reviews yet</p></div>
+    if (sorted.length === 0) return <div className="reviewBox"><h2>Reviews</h2><p>No reviews yet</p></div>
 
     const rev = sorted[currentIndex]
 
@@ -50,7 +50,7 @@ function ReviewBox(){
 
     return (
         <div className="reviewBox">
-            <h1>Reviews</h1>
+            <h2>Reviews</h2>
             <div className="revInfoBox">
                 <div className="averageBox">
                     <h3>Total: {sorted.length}</h3>
